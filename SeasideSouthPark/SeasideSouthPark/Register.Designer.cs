@@ -142,13 +142,14 @@
             this.txtFName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtFName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtFName.ForeColor = System.Drawing.Color.Gray;
             this.txtFName.Location = new System.Drawing.Point(5, 9);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(225, 24);
             this.txtFName.TabIndex = 0;
             this.txtFName.Text = "First Name";
             this.txtFName.Enter += new System.EventHandler(this.txtFName_Enter);
+            this.txtFName.Leave += new System.EventHandler(this.txtFName_Leave);
             // 
             // pnlBgUserName
             // 
@@ -165,13 +166,14 @@
             this.txtLName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtLName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtLName.ForeColor = System.Drawing.Color.Gray;
             this.txtLName.Location = new System.Drawing.Point(5, 9);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(225, 24);
             this.txtLName.TabIndex = 0;
             this.txtLName.Text = "Last Name";
             this.txtLName.Enter += new System.EventHandler(this.txtLName_Enter);
+            this.txtLName.Leave += new System.EventHandler(this.txtLName_Leave);
             // 
             // panel2
             // 
@@ -198,13 +200,14 @@
             this.txtUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtUserName.ForeColor = System.Drawing.Color.Gray;
             this.txtUserName.Location = new System.Drawing.Point(5, 9);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(225, 24);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.Text = "Username";
             this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
+            this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
             // 
             // panel4
             // 
@@ -221,13 +224,14 @@
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtEmail.ForeColor = System.Drawing.Color.Gray;
             this.txtEmail.Location = new System.Drawing.Point(5, 9);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(225, 24);
             this.txtEmail.TabIndex = 0;
             this.txtEmail.Text = "E-mail";
             this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // panel5
             // 
@@ -244,13 +248,14 @@
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtPhone.ForeColor = System.Drawing.Color.Gray;
             this.txtPhone.Location = new System.Drawing.Point(5, 9);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(225, 24);
             this.txtPhone.TabIndex = 0;
             this.txtPhone.Text = "Mobile Number";
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // panel6
             // 
@@ -267,13 +272,14 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtPassword.Location = new System.Drawing.Point(5, 9);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(225, 24);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.Text = "Password";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // panel7
             // 
@@ -290,13 +296,14 @@
             this.txtConPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.txtConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConPassword.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.txtConPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtConPassword.Location = new System.Drawing.Point(5, 9);
             this.txtConPassword.Name = "txtConPassword";
             this.txtConPassword.Size = new System.Drawing.Size(225, 24);
             this.txtConPassword.TabIndex = 0;
             this.txtConPassword.Text = "Confirm Password";
             this.txtConPassword.Enter += new System.EventHandler(this.txtConPassword_Enter);
+            this.txtConPassword.Leave += new System.EventHandler(this.txtConPassword_Leave);
             // 
             // btnSignUp
             // 

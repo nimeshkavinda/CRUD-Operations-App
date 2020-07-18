@@ -37,7 +37,16 @@ namespace SeasideSouthPark
             if (txtUserName.Text == "Username")
             {
                 txtUserName.Text = "";
-                txtUserName.ForeColor = Color.Black;
+                txtUserName.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void txtUserName_Leave(object sender, EventArgs e)
+        {
+            if (txtUserName.Text.Length<1)
+            {
+                txtUserName.Text = "Username";
+                txtUserName.ForeColor = Color.Gray;
             }
         }
 
@@ -47,7 +56,16 @@ namespace SeasideSouthPark
             {
                 txtPassword.Text = "";
                 txtPassword.PasswordChar = '*';
-                txtPassword.ForeColor = Color.Black;
+                txtPassword.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Length < 1)
+            {
+                txtPassword.Text = "Password";
+                txtPassword.ForeColor = Color.Gray;
             }
         }
 

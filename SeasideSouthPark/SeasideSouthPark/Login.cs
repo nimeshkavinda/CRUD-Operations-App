@@ -19,7 +19,7 @@ namespace SeasideSouthPark
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnClose_MouseEnter(object sender, EventArgs e)

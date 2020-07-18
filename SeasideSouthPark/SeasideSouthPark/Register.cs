@@ -19,7 +19,7 @@ namespace SeasideSouthPark
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
@@ -102,6 +102,23 @@ namespace SeasideSouthPark
                 txtConPassword.PasswordChar = '*';
                 txtConPassword.ForeColor = Color.Black;
             }
+        }
+
+        private void btnBack_MouseEnter(object sender, EventArgs e)
+        {
+            btnBack.Size = new Size(21, 21);
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.Size = new Size(20, 20);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formLogin frmLogin = new formLogin();
+            frmLogin.Show();
+            this.Hide();
         }
     }
 }

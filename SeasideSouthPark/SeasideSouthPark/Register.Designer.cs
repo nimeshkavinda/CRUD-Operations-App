@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSignUp));
             this.btnClose = new System.Windows.Forms.Button();
             this.ctrlBar = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlCreateAcc = new System.Windows.Forms.Panel();
@@ -85,11 +86,32 @@
             // 
             // ctrlBar
             // 
+            this.ctrlBar.Controls.Add(this.btnBack);
             this.ctrlBar.Controls.Add(this.btnClose);
             this.ctrlBar.Location = new System.Drawing.Point(0, 0);
             this.ctrlBar.Name = "ctrlBar";
             this.ctrlBar.Size = new System.Drawing.Size(400, 35);
             this.ctrlBar.TabIndex = 5;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Location = new System.Drawing.Point(343, 8);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(20, 20);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
             // 
             // dragCtrlBar
             // 
@@ -396,5 +418,6 @@
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Label lblHvAcc;
         private System.Windows.Forms.LinkLabel linkLogIn;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace SeasideSouthPark
 {
@@ -119,6 +121,22 @@ namespace SeasideSouthPark
                 txtEmail.Text = "E-mail";
                 txtEmail.ForeColor = Color.Gray;
             }
+
+            if (!(txtEmail.Text=="E-mail"))
+            {
+
+                string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+                if (Regex.IsMatch(txtEmail.Text, pattern))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Email address");
+                    txtEmail.Text = "E-mail";
+                    txtEmail.ForeColor = Color.Gray;
+                }
+            }
         }
 
         private void txtPhone_Enter(object sender, EventArgs e)
@@ -127,6 +145,14 @@ namespace SeasideSouthPark
             {
                 txtPhone.Text = "";
                 txtPhone.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 
@@ -182,6 +208,76 @@ namespace SeasideSouthPark
             formLogin frmLogin = new formLogin();
             frmLogin.Show();
             this.Hide();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            if(txtFName.Text=="First Name" || txtLName.Text=="Last Name" || txtUserName.Text=="Username" || txtEmail.Text=="E-mail" || txtPhone.Text=="Mobile Number" || txtPassword.Text=="Password" || txtConPassword.Text=="Confirm Password")
+            {
+                MessageBox.Show("Please fill in all the fields");
+            }
+
+            else if(!(txtPassword.Text == txtConPassword.Text))
+            {
+                MessageBox.Show("Passwords don't match");
+            }
+            
+            else if (!(checkboxTerms.Checked))
+            {
+                MessageBox.Show("You need to accept terms & conditions");
+            }
+
+            else
+            {
+                string username = txtUserName.Text;
+                string fname = txtFName.Text;
+                string lname = txtLName.Text;
+                string email = txtEmail.Text;
+                string phone = txtPhone.Text;
+                string password = txtPassword.Text;
+
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
+                string qry = "Insert into SignUp Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "')";
+                SqlCommand cmd = new SqlCommand(qry, con);
+
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Sign Up Successful, Please Log In");
+                }
+
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Sign Up Unsuccessful, Error Generated: " + ex);
+                }
+
+                finally
+                {
+                    txtFName.Text = "First Name";
+                    txtFName.ForeColor = Color.Gray;
+
+                    txtLName.Text = "Last Name";
+                    txtLName.ForeColor = Color.Gray;
+
+                    txtUserName.Text = "Username";
+                    txtUserName.ForeColor = Color.Gray;
+
+                    txtEmail.Text = "E-mail";
+                    txtEmail.ForeColor = Color.Gray;
+
+                    txtPhone.Text = "Mobile Number";
+                    txtPhone.ForeColor = Color.Gray;
+
+                    txtPassword.Text = "Password";
+                    txtPassword.ForeColor = Color.Gray;
+
+                    txtConPassword.Text = "Confirm Password";
+                    txtConPassword.ForeColor = Color.Gray;
+
+                    checkboxTerms.Checked = false;
+                }
+            }
         }
     }
 }

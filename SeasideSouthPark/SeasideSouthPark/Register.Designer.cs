@@ -255,6 +255,7 @@
             this.txtPhone.TabIndex = 0;
             this.txtPhone.Text = "Mobile Number";
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // panel6
@@ -317,6 +318,7 @@
             this.btnSignUp.TabIndex = 15;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // checkboxTerms
             // 

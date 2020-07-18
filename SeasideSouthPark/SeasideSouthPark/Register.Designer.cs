@@ -126,6 +126,7 @@
             this.txtFName.Size = new System.Drawing.Size(225, 24);
             this.txtFName.TabIndex = 0;
             this.txtFName.Text = "First Name";
+            this.txtFName.Enter += new System.EventHandler(this.txtFName_Enter);
             // 
             // pnlBgUserName
             // 
@@ -148,6 +149,7 @@
             this.txtLName.Size = new System.Drawing.Size(225, 24);
             this.txtLName.TabIndex = 0;
             this.txtLName.Text = "Last Name";
+            this.txtLName.Enter += new System.EventHandler(this.txtLName_Enter);
             // 
             // panel2
             // 
@@ -180,6 +182,7 @@
             this.txtUserName.Size = new System.Drawing.Size(225, 24);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.Text = "Username";
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // panel4
             // 
@@ -202,6 +205,7 @@
             this.txtEmail.Size = new System.Drawing.Size(225, 24);
             this.txtEmail.TabIndex = 0;
             this.txtEmail.Text = "E-mail";
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
             // 
             // panel5
             // 
@@ -224,6 +228,7 @@
             this.txtPhone.Size = new System.Drawing.Size(225, 24);
             this.txtPhone.TabIndex = 0;
             this.txtPhone.Text = "Mobile Number";
+            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
             // 
             // panel6
             // 
@@ -246,6 +251,7 @@
             this.txtPassword.Size = new System.Drawing.Size(225, 24);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.Text = "Password";
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             // 
             // panel7
             // 
@@ -268,6 +274,7 @@
             this.txtConPassword.Size = new System.Drawing.Size(225, 24);
             this.txtConPassword.TabIndex = 0;
             this.txtConPassword.Text = "Confirm Password";
+            this.txtConPassword.Enter += new System.EventHandler(this.txtConPassword_Enter);
             // 
             // btnSignUp
             // 

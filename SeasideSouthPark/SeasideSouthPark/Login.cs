@@ -76,5 +76,43 @@ namespace SeasideSouthPark
             frmSignUp.Show();
             this.Hide();
         }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
+            string qry = "Select * from SignUp where Username='" + txtUserName.Text.Trim() + "' and Password='" + txtPassword.Text.Trim() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(qry,con);
+            DataTable dtbl = new DataTable();
+            sda.Fill(dtbl);
+
+            try
+            {
+                if (dtbl.Rows.Count == 1)
+                {
+                    formHome frmHome = new formHome();
+                    frmHome.Show();
+                    this.Hide();
+                }
+
+                else
+                {
+                    MessageBox.Show("Please check your username and password");
+                }
+            }
+            
+            catch(Exception ex)
+            {
+                MessageBox.Show("Log In failed, Error generated: " + ex);
+            }
+
+            finally
+            {
+                txtUserName.Text = "Username";
+                txtUserName.ForeColor = Color.Gray;
+
+                txtPassword.Text = "Password";
+                txtPassword.ForeColor = Color.Gray;
+            }
+        }
     }
 }

@@ -20,3 +20,15 @@ D:\Documents\CRUD-Operations-Application\SeasideSouthPark\SeasideSouthPark\obj\D
 D:\Documents\CRUD-Operations-Application\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.exe
 D:\Documents\CRUD-Operations-Application\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.pdb
 D:\Documents\CRUD-Operations-Application\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csprojAssemblyReference.cache
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\SeasideSouthPark.exe.config
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\SeasideSouthPark.exe
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\SeasideSouthPark.pdb
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\JDragControl.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csprojAssemblyReference.cache
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.formLogin.resources
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.Properties.Resources.resources
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csproj.GenerateResource.cache
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csproj.CopyComplete
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.exe
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.pdb
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.formSignUp.resources

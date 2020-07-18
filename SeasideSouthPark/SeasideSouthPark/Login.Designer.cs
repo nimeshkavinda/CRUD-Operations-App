@@ -172,6 +172,7 @@
             this.linkSignUp.TabIndex = 9;
             this.linkSignUp.TabStop = true;
             this.linkSignUp.Text = "Sign Up Here";
+            this.linkSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignUp_LinkClicked);
             // 
             // lblDntHvAcc
             // 

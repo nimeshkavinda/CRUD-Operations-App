@@ -50,5 +50,12 @@ namespace SeasideSouthPark
                 txtPassword.ForeColor = Color.Black;
             }
         }
+
+        private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formSignUp frmSignUp = new formSignUp();
+            frmSignUp.Show();
+            this.Hide();
+        }
     }
 }

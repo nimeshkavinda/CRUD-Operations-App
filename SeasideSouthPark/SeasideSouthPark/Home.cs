@@ -12,9 +12,25 @@ namespace SeasideSouthPark
 {
     public partial class formHome : Form
     {
-        public formHome()
+        public formHome(string username)
         {
             InitializeComponent();
+            lblUser.Text = username;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            btnClose.Size = new Size(21, 21);
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnClose.Size = new Size(20, 20);
         }
     }
 }

@@ -89,7 +89,7 @@ namespace SeasideSouthPark
             {
                 if (dtbl.Rows.Count == 1)
                 {
-                    formHome frmHome = new formHome();
+                    formHome frmHome = new formHome(txtUserName.Text.Trim());
                     frmHome.Show();
                     this.Hide();
                 }
@@ -102,7 +102,7 @@ namespace SeasideSouthPark
             
             catch(Exception ex)
             {
-                MessageBox.Show("Log In failed, Error generated: " + ex);
+                MessageBox.Show("Login Failed, Error Generated: " + ex);
             }
 
             finally

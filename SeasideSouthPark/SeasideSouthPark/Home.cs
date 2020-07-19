@@ -32,5 +32,19 @@ namespace SeasideSouthPark
         {
             btnClose.Size = new Size(20, 20);
         }
+
+        private void linkSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formLogin frmLogin = new formLogin();
+            frmLogin.Show();
+            this.Hide();
+        }
+
+        private void linkManageAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formAccount frmAccount = new formAccount(lblUser.Text);
+            frmAccount.Show();
+            this.Hide();
+        }
     }
 }

@@ -236,8 +236,8 @@ namespace SeasideSouthPark
                 string phone = txtPhone.Text;
                 string password = txtPassword.Text;
 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
-                string qry = "Insert into SignUp Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "')";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\SeasideHotel.mdf;Integrated Security=True;Connect Timeout=30");
+                string qry = "Insert into Test Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "')";
                 SqlCommand cmd = new SqlCommand(qry, con);
 
                 try

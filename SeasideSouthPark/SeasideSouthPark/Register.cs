@@ -247,6 +247,19 @@ namespace SeasideSouthPark
                     MessageBox.Show("Sign Up Successful, Please Log In");
                 }
 
+                catch(SqlException sqlex)
+                {
+                    if (sqlex.Number == 2627)
+                    {
+                        MessageBox.Show("Username already exist");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Sign Up Unsuccessful, Error Generated: " + sqlex);
+                    }
+                }
+
                 catch(Exception ex)
                 {
                     MessageBox.Show("Sign Up Unsuccessful, Error Generated: " + ex);

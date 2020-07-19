@@ -34,10 +34,10 @@
             this.ctrlBar = new System.Windows.Forms.Panel();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.pnlHello = new System.Windows.Forms.Panel();
+            this.picboxUser = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlWelcome = new System.Windows.Forms.Panel();
-            this.picboxUser = new System.Windows.Forms.PictureBox();
-            this.pnlHello = new System.Windows.Forms.Panel();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
@@ -89,12 +89,31 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(250, 625);
             this.pnlSideMenu.TabIndex = 6;
             // 
+            // pnlHello
+            // 
+            this.pnlHello.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHello.BackgroundImage")));
+            this.pnlHello.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlHello.Location = new System.Drawing.Point(100, 32);
+            this.pnlHello.Name = "pnlHello";
+            this.pnlHello.Size = new System.Drawing.Size(66, 26);
+            this.pnlHello.TabIndex = 9;
+            // 
+            // picboxUser
+            // 
+            this.picboxUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxUser.BackgroundImage")));
+            this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picboxUser.Location = new System.Drawing.Point(25, 25);
+            this.picboxUser.Name = "picboxUser";
+            this.picboxUser.Size = new System.Drawing.Size(65, 65);
+            this.picboxUser.TabIndex = 8;
+            this.picboxUser.TabStop = false;
+            // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblUser.Location = new System.Drawing.Point(105, 62);
+            this.lblUser.Location = new System.Drawing.Point(95, 62);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(93, 23);
             this.lblUser.TabIndex = 7;
@@ -109,25 +128,6 @@
             this.pnlWelcome.Name = "pnlWelcome";
             this.pnlWelcome.Size = new System.Drawing.Size(930, 625);
             this.pnlWelcome.TabIndex = 7;
-            // 
-            // picboxUser
-            // 
-            this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picboxUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picboxUser.Location = new System.Drawing.Point(34, 25);
-            this.picboxUser.Name = "picboxUser";
-            this.picboxUser.Size = new System.Drawing.Size(65, 65);
-            this.picboxUser.TabIndex = 8;
-            this.picboxUser.TabStop = false;
-            // 
-            // pnlHello
-            // 
-            this.pnlHello.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHello.BackgroundImage")));
-            this.pnlHello.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlHello.Location = new System.Drawing.Point(110, 32);
-            this.pnlHello.Name = "pnlHello";
-            this.pnlHello.Size = new System.Drawing.Size(66, 26);
-            this.pnlHello.TabIndex = 9;
             // 
             // formHome
             // 

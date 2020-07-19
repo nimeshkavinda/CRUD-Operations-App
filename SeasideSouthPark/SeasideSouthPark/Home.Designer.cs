@@ -33,9 +33,14 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.ctrlBar = new System.Windows.Forms.Panel();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSideMenu = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
+            this.pnlWelcome = new System.Windows.Forms.Panel();
+            this.picboxUser = new System.Windows.Forms.PictureBox();
+            this.pnlHello = new System.Windows.Forms.Panel();
             this.ctrlBar.SuspendLayout();
+            this.pnlSideMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -72,24 +77,57 @@
             this.dragCtrlBar.GetForm = this;
             this.dragCtrlBar.TargetControl = this.ctrlBar;
             // 
-            // panel1
+            // pnlSideMenu
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 625);
-            this.panel1.TabIndex = 6;
+            this.pnlSideMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlSideMenu.Controls.Add(this.pnlHello);
+            this.pnlSideMenu.Controls.Add(this.picboxUser);
+            this.pnlSideMenu.Controls.Add(this.lblUser);
+            this.pnlSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSideMenu.Location = new System.Drawing.Point(0, 35);
+            this.pnlSideMenu.Name = "pnlSideMenu";
+            this.pnlSideMenu.Size = new System.Drawing.Size(250, 625);
+            this.pnlSideMenu.TabIndex = 6;
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.Black;
-            this.lblUser.Location = new System.Drawing.Point(835, 265);
+            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblUser.Location = new System.Drawing.Point(105, 62);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(93, 23);
             this.lblUser.TabIndex = 7;
             this.lblUser.Text = "Username";
+            // 
+            // pnlWelcome
+            // 
+            this.pnlWelcome.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlWelcome.BackgroundImage")));
+            this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlWelcome.Location = new System.Drawing.Point(250, 35);
+            this.pnlWelcome.Name = "pnlWelcome";
+            this.pnlWelcome.Size = new System.Drawing.Size(930, 625);
+            this.pnlWelcome.TabIndex = 7;
+            // 
+            // picboxUser
+            // 
+            this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picboxUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picboxUser.Location = new System.Drawing.Point(34, 25);
+            this.picboxUser.Name = "picboxUser";
+            this.picboxUser.Size = new System.Drawing.Size(65, 65);
+            this.picboxUser.TabIndex = 8;
+            this.picboxUser.TabStop = false;
+            // 
+            // pnlHello
+            // 
+            this.pnlHello.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHello.BackgroundImage")));
+            this.pnlHello.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlHello.Location = new System.Drawing.Point(110, 32);
+            this.pnlHello.Name = "pnlHello";
+            this.pnlHello.Size = new System.Drawing.Size(66, 26);
+            this.pnlHello.TabIndex = 9;
             // 
             // formHome
             // 
@@ -97,16 +135,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 660);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlWelcome);
+            this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.ctrlBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seaside South Park";
             this.ctrlBar.ResumeLayout(false);
+            this.pnlSideMenu.ResumeLayout(false);
+            this.pnlSideMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -115,7 +155,10 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel ctrlBar;
         private JDragControl.JDragControl dragCtrlBar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSideMenu;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Panel pnlWelcome;
+        private System.Windows.Forms.Panel pnlHello;
+        private System.Windows.Forms.PictureBox picboxUser;
     }
 }

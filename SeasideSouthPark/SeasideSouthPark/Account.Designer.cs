@@ -42,6 +42,7 @@
             this.picboxLine = new System.Windows.Forms.PictureBox();
             this.picboxUser = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnBack = new System.Windows.Forms.Button();
             this.ctrlBar.SuspendLayout();
             this.pnlAccBg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLine)).BeginInit();
@@ -70,6 +71,7 @@
             // 
             // ctrlBar
             // 
+            this.ctrlBar.Controls.Add(this.btnBack);
             this.ctrlBar.Controls.Add(this.btnClose);
             this.ctrlBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ctrlBar.Location = new System.Drawing.Point(0, 0);
@@ -152,7 +154,7 @@
             this.lblFLName.AutoSize = true;
             this.lblFLName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblFLName.Location = new System.Drawing.Point(50, 170);
+            this.lblFLName.Location = new System.Drawing.Point(49, 170);
             this.lblFLName.Name = "lblFLName";
             this.lblFLName.Size = new System.Drawing.Size(180, 23);
             this.lblFLName.TabIndex = 11;
@@ -181,6 +183,26 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Location = new System.Drawing.Point(743, 8);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(20, 20);
+            this.btnBack.TabIndex = 20;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseEnter += new System.EventHandler(this.btnBack_MouseEnter);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
             // 
             // formAccount
             // 
@@ -217,5 +239,6 @@
         private System.Windows.Forms.Label lblFLName;
         private System.Windows.Forms.LinkLabel linkImgUpload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnBack;
     }
 }

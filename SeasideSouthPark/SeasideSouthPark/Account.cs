@@ -36,6 +36,23 @@ namespace SeasideSouthPark
             btnClose.Size = new Size(20, 20);
         }
 
+        private void btnBack_MouseEnter(object sender, EventArgs e)
+        {
+            btnBack.Size = new Size(21, 21);
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.Size = new Size(20, 20);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formHome frmHome = new formHome(uName);
+            frmHome.Show();
+            this.Hide();
+        }
+
         private void linkImgUpload_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
@@ -46,28 +63,23 @@ namespace SeasideSouthPark
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                
-
                     // Create a new Bitmap object from the picture file on disk,
-                    // and assign that to the PictureBox.Image property
+
+                    // and assign that to the picboxUser.Image property
+
                     picboxUser.Image = new Bitmap(dlg.FileName);
                 }
             }
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("insert into SignUp(ProfileImg) values(@Pic)", con);
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand("Update tblUser set ProImg(@Pic) where Username='" + uName + "'",con);
             MemoryStream stream = new MemoryStream();
 
-
-            
-
-
-
-            picboxUser.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            picboxUser.Image.Save(stream,System.Drawing.Imaging.ImageFormat.Png);
 
             byte[] pic = stream.ToArray();
 
-            cmd.Parameters.AddWithValue("@Pic", pic);
+            cmd.Parameters.AddWithValue("@Pic",pic);
             try
             {
                 con.Open();
@@ -82,17 +94,11 @@ namespace SeasideSouthPark
                 con.Close();
             }
 
-            SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand command = new SqlCommand("select ProfileImg from SignUp where Username='"+uName+"'", connect);
+            SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand("Select ProImg from tblUser where Username='" + uName + "'",connect);
 
             SqlDataAdapter dp = new SqlDataAdapter(command);
             DataSet ds = new DataSet("Images");
-
-
-
-            
-
- 
 
             //DataTable table = new DataTable();
 
@@ -106,15 +112,13 @@ namespace SeasideSouthPark
 
             //dp.Dispose();
 
-
-
             byte[] MyData = new byte[0];
 
-            dp.Fill(ds, "Images");
+            dp.Fill(ds,"Images");
             DataRow myRow;
             myRow = ds.Tables["Images"].Rows[0];
 
-            MyData = (byte[])myRow["ProfileImg"];
+            MyData = (byte[])myRow["ProImg"];
 
             MemoryStream stream1 = new MemoryStream(MyData);
 

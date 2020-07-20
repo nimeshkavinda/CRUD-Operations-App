@@ -34,17 +34,18 @@
             this.ctrlBar = new System.Windows.Forms.Panel();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlAccBg = new System.Windows.Forms.Panel();
-            this.picboxUser = new System.Windows.Forms.PictureBox();
-            this.picboxLine = new System.Windows.Forms.PictureBox();
-            this.lblFLName = new System.Windows.Forms.Label();
-            this.lblUserEmail = new System.Windows.Forms.Label();
-            this.lblPNumber = new System.Windows.Forms.Label();
-            this.lblCountry = new System.Windows.Forms.Label();
             this.linkImgUpload = new System.Windows.Forms.LinkLabel();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblPNumber = new System.Windows.Forms.Label();
+            this.lblUserEmail = new System.Windows.Forms.Label();
+            this.lblFLName = new System.Windows.Forms.Label();
+            this.picboxLine = new System.Windows.Forms.PictureBox();
+            this.picboxUser = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ctrlBar.SuspendLayout();
             this.pnlAccBg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -98,70 +99,6 @@
             this.pnlAccBg.Size = new System.Drawing.Size(800, 565);
             this.pnlAccBg.TabIndex = 6;
             // 
-            // picboxUser
-            // 
-            this.picboxUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxUser.BackgroundImage")));
-            this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picboxUser.Location = new System.Drawing.Point(50, 50);
-            this.picboxUser.Name = "picboxUser";
-            this.picboxUser.Size = new System.Drawing.Size(100, 100);
-            this.picboxUser.TabIndex = 9;
-            this.picboxUser.TabStop = false;
-            // 
-            // picboxLine
-            // 
-            this.picboxLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxLine.BackgroundImage")));
-            this.picboxLine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picboxLine.Location = new System.Drawing.Point(280, 50);
-            this.picboxLine.Name = "picboxLine";
-            this.picboxLine.Size = new System.Drawing.Size(10, 275);
-            this.picboxLine.TabIndex = 10;
-            this.picboxLine.TabStop = false;
-            // 
-            // lblFLName
-            // 
-            this.lblFLName.AutoSize = true;
-            this.lblFLName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblFLName.Location = new System.Drawing.Point(50, 170);
-            this.lblFLName.Name = "lblFLName";
-            this.lblFLName.Size = new System.Drawing.Size(180, 23);
-            this.lblFLName.TabIndex = 11;
-            this.lblFLName.Text = "FirstName LastName";
-            // 
-            // lblUserEmail
-            // 
-            this.lblUserEmail.AutoSize = true;
-            this.lblUserEmail.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblUserEmail.Location = new System.Drawing.Point(50, 193);
-            this.lblUserEmail.Name = "lblUserEmail";
-            this.lblUserEmail.Size = new System.Drawing.Size(173, 19);
-            this.lblUserEmail.TabIndex = 12;
-            this.lblUserEmail.Text = "username@domain.com";
-            // 
-            // lblPNumber
-            // 
-            this.lblPNumber.AutoSize = true;
-            this.lblPNumber.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblPNumber.Location = new System.Drawing.Point(50, 230);
-            this.lblPNumber.Name = "lblPNumber";
-            this.lblPNumber.Size = new System.Drawing.Size(97, 19);
-            this.lblPNumber.TabIndex = 13;
-            this.lblPNumber.Text = "0701234567";
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblCountry.Location = new System.Drawing.Point(51, 260);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(63, 19);
-            this.lblCountry.TabIndex = 14;
-            this.lblCountry.Text = "Country";
-            // 
             // linkImgUpload
             // 
             this.linkImgUpload.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
@@ -175,6 +112,75 @@
             this.linkImgUpload.TabIndex = 19;
             this.linkImgUpload.TabStop = true;
             this.linkImgUpload.Text = "Choose image";
+            this.linkImgUpload.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkImgUpload_LinkClicked);
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblCountry.Location = new System.Drawing.Point(51, 260);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(63, 19);
+            this.lblCountry.TabIndex = 14;
+            this.lblCountry.Text = "Country";
+            // 
+            // lblPNumber
+            // 
+            this.lblPNumber.AutoSize = true;
+            this.lblPNumber.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblPNumber.Location = new System.Drawing.Point(50, 230);
+            this.lblPNumber.Name = "lblPNumber";
+            this.lblPNumber.Size = new System.Drawing.Size(97, 19);
+            this.lblPNumber.TabIndex = 13;
+            this.lblPNumber.Text = "0701234567";
+            // 
+            // lblUserEmail
+            // 
+            this.lblUserEmail.AutoSize = true;
+            this.lblUserEmail.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblUserEmail.Location = new System.Drawing.Point(50, 193);
+            this.lblUserEmail.Name = "lblUserEmail";
+            this.lblUserEmail.Size = new System.Drawing.Size(173, 19);
+            this.lblUserEmail.TabIndex = 12;
+            this.lblUserEmail.Text = "username@domain.com";
+            // 
+            // lblFLName
+            // 
+            this.lblFLName.AutoSize = true;
+            this.lblFLName.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblFLName.Location = new System.Drawing.Point(50, 170);
+            this.lblFLName.Name = "lblFLName";
+            this.lblFLName.Size = new System.Drawing.Size(180, 23);
+            this.lblFLName.TabIndex = 11;
+            this.lblFLName.Text = "FirstName LastName";
+            // 
+            // picboxLine
+            // 
+            this.picboxLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxLine.BackgroundImage")));
+            this.picboxLine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picboxLine.Location = new System.Drawing.Point(280, 50);
+            this.picboxLine.Name = "picboxLine";
+            this.picboxLine.Size = new System.Drawing.Size(10, 275);
+            this.picboxLine.TabIndex = 10;
+            this.picboxLine.TabStop = false;
+            // 
+            // picboxUser
+            // 
+            this.picboxUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxUser.BackgroundImage")));
+            this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picboxUser.Location = new System.Drawing.Point(50, 50);
+            this.picboxUser.Name = "picboxUser";
+            this.picboxUser.Size = new System.Drawing.Size(100, 100);
+            this.picboxUser.TabIndex = 9;
+            this.picboxUser.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // formAccount
             // 
@@ -191,8 +197,8 @@
             this.ctrlBar.ResumeLayout(false);
             this.pnlAccBg.ResumeLayout(false);
             this.pnlAccBg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +216,6 @@
         private System.Windows.Forms.Label lblUserEmail;
         private System.Windows.Forms.Label lblFLName;
         private System.Windows.Forms.LinkLabel linkImgUpload;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

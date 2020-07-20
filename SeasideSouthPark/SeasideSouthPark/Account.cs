@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace SeasideSouthPark
 {
     public partial class formAccount : Form
     {
+        String uName;
         public formAccount(string username)
         {
+            uName = username;
             InitializeComponent();
-            string userid = username;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -31,6 +34,91 @@ namespace SeasideSouthPark
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
             btnClose.Size = new Size(20, 20);
+        }
+
+        private void linkImgUpload_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "png files (*.png)|*.png";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                
+
+                    // Create a new Bitmap object from the picture file on disk,
+                    // and assign that to the PictureBox.Image property
+                    picboxUser.Image = new Bitmap(dlg.FileName);
+                }
+            }
+
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand("insert into SignUp(ProfileImg) values(@Pic)", con);
+            MemoryStream stream = new MemoryStream();
+
+
+            
+
+
+
+            picboxUser.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+
+            byte[] pic = stream.ToArray();
+
+            cmd.Parameters.AddWithValue("@Pic", pic);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\UserDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand("select ProfileImg from SignUp where Username='"+uName+"'", connect);
+
+            SqlDataAdapter dp = new SqlDataAdapter(command);
+            DataSet ds = new DataSet("Images");
+
+
+
+            
+
+ 
+
+            //DataTable table = new DataTable();
+
+            //dp.Fill(table);
+
+            //byte[] img = (byte[])table.Rows[0][3];
+
+            //MemoryStream ms = new MemoryStream(img);
+
+            //picboxUser.Image = Image.FromStream(ms);
+
+            //dp.Dispose();
+
+
+
+            byte[] MyData = new byte[0];
+
+            dp.Fill(ds, "Images");
+            DataRow myRow;
+            myRow = ds.Tables["Images"].Rows[0];
+
+            MyData = (byte[])myRow["ProfileImg"];
+
+            MemoryStream stream1 = new MemoryStream(MyData);
+
+            picboxUser.Image = Image.FromStream(stream);
         }
     }
 }

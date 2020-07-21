@@ -81,7 +81,7 @@ namespace SeasideSouthPark
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
             string qry = "Select * from tblUser where Username='" + txtUserName.Text.Trim() + "' and Password='" + txtPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(qry,con);
+            SqlDataAdapter sda = new SqlDataAdapter(qry, con);
             DataTable dtbl = new DataTable();
             sda.Fill(dtbl);
 

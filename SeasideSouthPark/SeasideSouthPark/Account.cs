@@ -14,7 +14,8 @@ namespace SeasideSouthPark
 {
     public partial class formAccount : Form
     {
-        String uName;
+        string uName;
+
         public formAccount(string username)
         {
             uName = username;
@@ -72,14 +73,14 @@ namespace SeasideSouthPark
             }
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("Update tblUser set ProImg(@Pic) where Username='" + uName + "'",con);
+            SqlCommand cmd = new SqlCommand("Update tblUser set ProImg(@Pic) where Username='" + uName + "'", con);
             MemoryStream stream = new MemoryStream();
 
             picboxUser.Image.Save(stream,System.Drawing.Imaging.ImageFormat.Png);
 
             byte[] pic = stream.ToArray();
 
-            cmd.Parameters.AddWithValue("@Pic",pic);
+            cmd.Parameters.AddWithValue("@Pic", pic);
             try
             {
                 con.Open();
@@ -95,7 +96,7 @@ namespace SeasideSouthPark
             }
 
             SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand command = new SqlCommand("Select ProImg from tblUser where Username='" + uName + "'",connect);
+            SqlCommand command = new SqlCommand("Select ProImg from tblUser where Username='" + uName + "'", connect);
 
             SqlDataAdapter dp = new SqlDataAdapter(command);
             DataSet ds = new DataSet("Images");

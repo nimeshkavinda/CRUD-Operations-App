@@ -238,7 +238,7 @@ namespace SeasideSouthPark
 
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
                 string qry = "Insert into tblUser Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "','" + null +"','" + null + "')";
-                SqlCommand cmd = new SqlCommand(qry,con);
+                SqlCommand cmd = new SqlCommand(qry, con);
 
                 try
                 {

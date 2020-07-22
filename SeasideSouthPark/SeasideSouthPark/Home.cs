@@ -46,5 +46,11 @@ namespace SeasideSouthPark
             frmAccount.Show();
             this.Hide();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formAbout frmAbout = new formAbout();
+            frmAbout.Show();
+        }
     }
 }

@@ -48,3 +48,4 @@ D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\D
 D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csproj.CopyComplete
 D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.exe
 D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.pdb
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.formAbout.resources

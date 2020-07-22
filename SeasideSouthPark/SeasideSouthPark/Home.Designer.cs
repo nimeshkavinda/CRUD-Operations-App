@@ -34,12 +34,13 @@
             this.ctrlBar = new System.Windows.Forms.Panel();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.linkManageAcc = new System.Windows.Forms.LinkLabel();
+            this.linkSignOut = new System.Windows.Forms.LinkLabel();
             this.pnlHello = new System.Windows.Forms.Panel();
             this.picboxUser = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlWelcome = new System.Windows.Forms.Panel();
-            this.linkSignOut = new System.Windows.Forms.LinkLabel();
-            this.linkManageAcc = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
@@ -82,6 +83,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlSideMenu.Controls.Add(this.linkLabel1);
             this.pnlSideMenu.Controls.Add(this.linkManageAcc);
             this.pnlSideMenu.Controls.Add(this.linkSignOut);
             this.pnlSideMenu.Controls.Add(this.pnlHello);
@@ -92,6 +94,36 @@
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(250, 625);
             this.pnlSideMenu.TabIndex = 6;
+            // 
+            // linkManageAcc
+            // 
+            this.linkManageAcc.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkManageAcc.AutoSize = true;
+            this.linkManageAcc.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkManageAcc.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkManageAcc.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkManageAcc.Location = new System.Drawing.Point(22, 110);
+            this.linkManageAcc.Name = "linkManageAcc";
+            this.linkManageAcc.Size = new System.Drawing.Size(99, 16);
+            this.linkManageAcc.TabIndex = 19;
+            this.linkManageAcc.TabStop = true;
+            this.linkManageAcc.Text = "Manage Account";
+            this.linkManageAcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkManageAcc_LinkClicked);
+            // 
+            // linkSignOut
+            // 
+            this.linkSignOut.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkSignOut.AutoSize = true;
+            this.linkSignOut.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkSignOut.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkSignOut.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkSignOut.Location = new System.Drawing.Point(22, 130);
+            this.linkSignOut.Name = "linkSignOut";
+            this.linkSignOut.Size = new System.Drawing.Size(56, 16);
+            this.linkSignOut.TabIndex = 18;
+            this.linkSignOut.TabStop = true;
+            this.linkSignOut.Text = "Sign Out";
+            this.linkSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignOut_LinkClicked);
             // 
             // pnlHello
             // 
@@ -133,35 +165,20 @@
             this.pnlWelcome.Size = new System.Drawing.Size(930, 625);
             this.pnlWelcome.TabIndex = 7;
             // 
-            // linkSignOut
+            // linkLabel1
             // 
-            this.linkSignOut.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkSignOut.AutoSize = true;
-            this.linkSignOut.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkSignOut.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkSignOut.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkSignOut.Location = new System.Drawing.Point(22, 130);
-            this.linkSignOut.Name = "linkSignOut";
-            this.linkSignOut.Size = new System.Drawing.Size(56, 16);
-            this.linkSignOut.TabIndex = 18;
-            this.linkSignOut.TabStop = true;
-            this.linkSignOut.Text = "Sign Out";
-            this.linkSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignOut_LinkClicked);
-            // 
-            // linkManageAcc
-            // 
-            this.linkManageAcc.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkManageAcc.AutoSize = true;
-            this.linkManageAcc.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkManageAcc.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkManageAcc.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkManageAcc.Location = new System.Drawing.Point(22, 110);
-            this.linkManageAcc.Name = "linkManageAcc";
-            this.linkManageAcc.Size = new System.Drawing.Size(99, 16);
-            this.linkManageAcc.TabIndex = 19;
-            this.linkManageAcc.TabStop = true;
-            this.linkManageAcc.Text = "Manage Account";
-            this.linkManageAcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkManageAcc_LinkClicked);
+            this.linkLabel1.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkLabel1.Location = new System.Drawing.Point(44, 269);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(41, 16);
+            this.linkLabel1.TabIndex = 20;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "About";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // formHome
             // 
@@ -196,5 +213,6 @@
         private System.Windows.Forms.PictureBox picboxUser;
         private System.Windows.Forms.LinkLabel linkSignOut;
         private System.Windows.Forms.LinkLabel linkManageAcc;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

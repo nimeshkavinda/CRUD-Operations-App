@@ -17,6 +17,17 @@ namespace SeasideSouthPark
             InitializeComponent();
         }
 
+        private static formAbout instance;
+
+        public static formAbout getInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+                instance = new formAbout();
+            else 
+                instance.BringToFront();
+            return instance;
+        }
+
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
             btnClose.Size = new Size(21, 21);

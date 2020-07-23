@@ -49,3 +49,14 @@ D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\D
 D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.exe
 D:\Documents\VS 2019\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.pdb
 D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.formAbout.resources
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.xml
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.dll.config

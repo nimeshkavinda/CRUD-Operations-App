@@ -35,11 +35,11 @@ namespace SeasideSouthPark
             string city = ds.Tables[0].Rows[0][4].ToString();
             string country = ds.Tables[0].Rows[0][5].ToString();
 
-            lblFLName.Text = (firstname + lastname);
-            lblUserEmail.Text = email;
-            lblPNumber.Text = phone;
-            lblCity.Text = city;
-            lblCountry.Text = country;
+            lblFLName.Text = (firstname.Trim() + " " + lastname.Trim());
+            lblUserEmail.Text = email.Trim();
+            lblPNumber.Text = phone.Trim();
+            lblCity.Text = city.Trim();
+            lblCountry.Text = country.Trim();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -375,6 +375,25 @@ namespace SeasideSouthPark
 
                     txtNewPass.Text = "New Password";
                     txtNewPass.ForeColor = Color.Gray;
+
+                    SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+                    string qry2 = "Select FName,LName,Email,Phone,City,Country from tblUser where Username='" + uName + "'";
+                    SqlDataAdapter sda = new SqlDataAdapter(qry2, con2);
+                    DataSet ds = new DataSet();
+                    sda.Fill(ds, "tblUser");
+
+                    string firstname = ds.Tables[0].Rows[0][0].ToString();
+                    string lastname = ds.Tables[0].Rows[0][1].ToString();
+                    string email2 = ds.Tables[0].Rows[0][2].ToString();
+                    string phone2 = ds.Tables[0].Rows[0][3].ToString();
+                    string city2 = ds.Tables[0].Rows[0][4].ToString();
+                    string country2 = ds.Tables[0].Rows[0][5].ToString();
+
+                    lblFLName.Text = (firstname.Trim() + " " + lastname.Trim());
+                    lblUserEmail.Text = email2.Trim();
+                    lblPNumber.Text = phone2.Trim();
+                    lblCity.Text = city2.Trim();
+                    lblCountry.Text = country2.Trim();
                 }
             }
         }

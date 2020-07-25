@@ -52,6 +52,9 @@
             this.linkSahan = new System.Windows.Forms.LinkLabel();
             this.linkNimesh = new System.Windows.Forms.LinkLabel();
             this.linkFeedback = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkQuit = new System.Windows.Forms.LinkLabel();
+            this.linkRegUser = new System.Windows.Forms.LinkLabel();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -118,6 +121,9 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlSideMenu.Controls.Add(this.linkRegUser);
+            this.pnlSideMenu.Controls.Add(this.linkQuit);
+            this.pnlSideMenu.Controls.Add(this.label1);
             this.pnlSideMenu.Controls.Add(this.pnlMenu);
             this.pnlSideMenu.Controls.Add(this.pnlHello);
             this.pnlSideMenu.Controls.Add(this.picboxUser);
@@ -379,6 +385,49 @@
             this.linkFeedback.Text = "seasidesouthpark@gmail.com";
             this.linkFeedback.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFeedback_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(22, 594);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "© Seaside South Park. All Rights Reserved.";
+            // 
+            // linkQuit
+            // 
+            this.linkQuit.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkQuit.AutoSize = true;
+            this.linkQuit.BackColor = System.Drawing.Color.Transparent;
+            this.linkQuit.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkQuit.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkQuit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkQuit.Location = new System.Drawing.Point(24, 559);
+            this.linkQuit.Name = "linkQuit";
+            this.linkQuit.Size = new System.Drawing.Size(37, 19);
+            this.linkQuit.TabIndex = 21;
+            this.linkQuit.TabStop = true;
+            this.linkQuit.Text = "Quit";
+            this.linkQuit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuit_LinkClicked);
+            // 
+            // linkRegUser
+            // 
+            this.linkRegUser.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkRegUser.AutoSize = true;
+            this.linkRegUser.BackColor = System.Drawing.Color.Transparent;
+            this.linkRegUser.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRegUser.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkRegUser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkRegUser.Location = new System.Drawing.Point(67, 559);
+            this.linkRegUser.Name = "linkRegUser";
+            this.linkRegUser.Size = new System.Drawing.Size(158, 19);
+            this.linkRegUser.TabIndex = 22;
+            this.linkRegUser.TabStop = true;
+            this.linkRegUser.Text = "Register Another User";
+            this.linkRegUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegUser_LinkClicked);
+            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,7 +438,9 @@
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.ctrlBar);
+            this.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seaside South Park";
@@ -430,5 +481,8 @@
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Button btnMngAcc;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkRegUser;
+        private System.Windows.Forms.LinkLabel linkQuit;
     }
 }

@@ -175,5 +175,17 @@ namespace SeasideSouthPark
         {
             System.Diagnostics.Process.Start("mailto:linkFeedback.Text");
         }
+
+        private void linkQuit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void linkRegUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formSignUp frmSignUp = new formSignUp();
+            frmSignUp.Show();
+            this.Hide();
+        }
     }
 }

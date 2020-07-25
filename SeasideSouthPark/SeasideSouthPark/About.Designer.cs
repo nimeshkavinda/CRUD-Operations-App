@@ -70,6 +70,7 @@
             // 
             // ctrlBar
             // 
+            this.ctrlBar.BackColor = System.Drawing.Color.White;
             this.ctrlBar.Controls.Add(this.btnClose);
             this.ctrlBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ctrlBar.Location = new System.Drawing.Point(0, 0);
@@ -84,6 +85,7 @@
             // 
             // pnlAboutBG
             // 
+            this.pnlAboutBG.BackColor = System.Drawing.Color.White;
             this.pnlAboutBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlAboutBG.BackgroundImage")));
             this.pnlAboutBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnlAboutBG.Controls.Add(this.btnSNGit);
@@ -290,11 +292,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 550);
             this.Controls.Add(this.pnlAboutBG);
             this.Controls.Add(this.ctrlBar);
+            this.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About Seaside South Park";

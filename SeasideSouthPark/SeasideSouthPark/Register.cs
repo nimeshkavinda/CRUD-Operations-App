@@ -179,6 +179,7 @@ namespace SeasideSouthPark
         {
             if (txtPassword.Text.Length < 1)
             {
+                txtPassword.PasswordChar = '\0';
                 txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.Gray;
             }
@@ -198,6 +199,7 @@ namespace SeasideSouthPark
         {
             if (txtConPassword.Text.Length < 1)
             {
+                txtConPassword.PasswordChar = '\0';
                 txtConPassword.Text = "Confirm Password";
                 txtConPassword.ForeColor = Color.Gray;
             }
@@ -236,7 +238,7 @@ namespace SeasideSouthPark
                 string phone = txtPhone.Text;
                 string password = txtPassword.Text;
 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(Global.ConnectionString);
                 string qry = "Insert into tblUser Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "','" + null +"','" + null + "','" + null + "')";
                 SqlCommand cmd = new SqlCommand(qry, con);
 

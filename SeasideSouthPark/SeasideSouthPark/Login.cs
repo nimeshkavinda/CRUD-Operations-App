@@ -65,6 +65,7 @@ namespace SeasideSouthPark
         {
             if (txtPassword.Text.Length < 1)
             {
+                txtPassword.PasswordChar = '\0';
                 txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.Gray;
             }
@@ -79,7 +80,7 @@ namespace SeasideSouthPark
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
             string qry = "Select * from tblUser where Username='" + txtUserName.Text.Trim() + "' and Password='" + txtPassword.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(qry, con);
             DataTable dtbl = new DataTable();
@@ -110,6 +111,7 @@ namespace SeasideSouthPark
                 txtUserName.Text = "Username";
                 txtUserName.ForeColor = Color.Gray;
 
+                txtPassword.PasswordChar = '\0';
                 txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.Gray;
             }

@@ -22,7 +22,7 @@ namespace SeasideSouthPark
             uName = username;
             InitializeComponent();
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
             string qry = "Select FName,LName,Email,Phone,City,Country from tblUser where Username='" + uName + "'";
             SqlDataAdapter sda = new SqlDataAdapter(qry, con);
             DataSet ds = new DataSet();
@@ -74,76 +74,88 @@ namespace SeasideSouthPark
             this.Hide();
         }
 
+        string imgLoc = "";
+        SqlConnection connection = new SqlConnection(Global.ConnectionString);
+        SqlCommand command;
+
         private void linkImgUpload_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-            using (OpenFileDialog dlg = new OpenFileDialog())
-            {
-                dlg.Title = "Open Image";
-                dlg.Filter = "png files (*.png)|*.png";
-
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    // Create a new Bitmap object from the picture file on disk,
-
-                    // and assign that to the picboxUser.Image property
-
-                    picboxUser.Image = new Bitmap(dlg.FileName);
-                }
-            }
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("Update tblUser set ProImg(@Pic) where Username='" + uName + "'", con);
-            MemoryStream stream = new MemoryStream();
-
-            picboxUser.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-
-            byte[] pic = stream.ToArray();
-
-            cmd.Parameters.AddWithValue("@Pic", pic);
             try
             {
-                con.Open();
-                cmd.ExecuteNonQuery();
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image files | *.jpg";
+                ofd.Title = "Choose image";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    imgLoc = ofd.FileName.ToString();
+                    picboxUser.ImageLocation = imgLoc;
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
             finally
             {
-                con.Close();
+                byte[] img = null;
+                FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+
+                img = br.ReadBytes((int)fs.Length);
+
+                string query = "Update tblUser Set ProImg='" + @img + "' Where Username ='" + uName + "'";
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command = new SqlCommand(query, connection);
+                command.Parameters.Add(new SqlParameter("@img", img));
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Profile image has been updated, Please save changes");
+            }
+        }
+
+        private void linkSaveImg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                string query = "Select ProImg from tblUser Where Username ='" + uName + "'";
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    byte[] img = (byte[])(reader[0]);
+                    if (img == null)
+                    {
+                        picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
+                        MessageBox.Show("Image can not be found");
+                    }
+
+                    else
+                    {
+                        MemoryStream ms = new MemoryStream(img);
+                        picboxUser.Image = Image.FromStream(ms);
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Image has not been saved properly");
+                }
+
             }
 
-            SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand command = new SqlCommand("Select ProImg from tblUser where Username='" + uName + "'", connect);
-
-            SqlDataAdapter dp = new SqlDataAdapter(command);
-            DataSet ds = new DataSet("Images");
-
-            //DataTable table = new DataTable();
-
-            //dp.Fill(table);
-
-            //byte[] img = (byte[])table.Rows[0][3];
-
-            //MemoryStream ms = new MemoryStream(img);
-
-            //picboxUser.Image = Image.FromStream(ms);
-
-            //dp.Dispose();
-
-            byte[] MyData = new byte[0];
-
-            dp.Fill(ds, "Images");
-            DataRow myRow;
-            myRow = ds.Tables["Images"].Rows[0];
-
-            MyData = (byte[])myRow["ProImg"];
-
-            MemoryStream stream1 = new MemoryStream(MyData);
-
-            picboxUser.Image = Image.FromStream(stream);
+            catch (Exception ex)
+            {
+                connection.Close();
+                MessageBox.Show("Error generated: "+ex);
+            }
         }
 
         private void txtFName_Enter(object sender, EventArgs e)
@@ -292,6 +304,7 @@ namespace SeasideSouthPark
         {
             if (txtCurrentPass.Text.Length < 1)
             {
+                txtCurrentPass.PasswordChar = '\0';
                 txtCurrentPass.Text = "Current Password";
                 txtCurrentPass.ForeColor = Color.Gray;
             }
@@ -311,6 +324,7 @@ namespace SeasideSouthPark
         {
             if (txtNewPass.Text.Length < 1)
             {
+                txtNewPass.PasswordChar = '\0';
                 txtNewPass.Text = "New Password";
                 txtNewPass.ForeColor = Color.Gray;
             }
@@ -334,67 +348,120 @@ namespace SeasideSouthPark
                 string currentpass = txtCurrentPass.Text;
                 string newpass = txtNewPass.Text;
 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-                string qry = "Update tblUser Set FName='"+fname+ "', LName='" + lname + "', Email='" + email + "', Phone='" + phone + "', City='" + city + "', Country='" + country + "', Password='" + newpass + "' Where Username ='" + uName + "'";
-                SqlCommand cmd = new SqlCommand(qry, con);
+                SqlConnection con = new SqlConnection(Global.ConnectionString);
+                string qry = "Select Password from tblUser where Username='" + uName + "'";
+                SqlDataAdapter sda = new SqlDataAdapter(qry, con);
+                DataSet ds = new DataSet();
+                sda.Fill(ds, "tblUser");
 
-                try
+                string pw = ds.Tables[0].Rows[0][0].ToString();
+
+                if (currentpass == pw)
                 {
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Account updated successfully");
+                    SqlConnection con1 = new SqlConnection(Global.ConnectionString);
+                    string qry1 = "Update tblUser Set FName='" + fname + "', LName='" + lname + "', Email='" + email + "', Phone='" + phone + "', City='" + city + "', Country='" + country + "', Password='" + newpass + "' Where Username ='" + uName + "'";
+                    SqlCommand cmd = new SqlCommand(qry1, con1);
+
+                    try
+                    {
+                        con1.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Account updated successfully");
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Couldn't update your account, Error Generated: " + ex);
+                    }
+
+                    finally
+                    {
+                        txtFName.Text = "First Name";
+                        txtFName.ForeColor = Color.Gray;
+
+                        txtLName.Text = "Last Name";
+                        txtLName.ForeColor = Color.Gray;
+
+                        txtEmail.Text = "E-mail";
+                        txtEmail.ForeColor = Color.Gray;
+
+                        txtPhone.Text = "Mobile Number";
+                        txtPhone.ForeColor = Color.Gray;
+
+                        txtCity.Text = "City";
+                        txtCity.ForeColor = Color.Gray;
+
+                        txtCountry.Text = "Country";
+                        txtCountry.ForeColor = Color.Gray;
+
+                        txtCurrentPass.PasswordChar = '\0';
+                        txtCurrentPass.Text = "Current Password";
+                        txtCurrentPass.ForeColor = Color.Gray;
+
+                        txtNewPass.PasswordChar = '\0';
+                        txtNewPass.Text = "New Password";
+                        txtNewPass.ForeColor = Color.Gray;
+
+                        SqlConnection con2 = new SqlConnection(Global.ConnectionString);
+                        string qry2 = "Select FName,LName,Email,Phone,City,Country from tblUser where Username='" + uName + "'";
+                        SqlDataAdapter sda1 = new SqlDataAdapter(qry2, con2);
+                        DataSet ds1 = new DataSet();
+                        sda.Fill(ds1, "tblUser");
+
+                        string firstname = ds1.Tables[0].Rows[0][0].ToString();
+                        string lastname = ds1.Tables[0].Rows[0][1].ToString();
+                        string email2 = ds1.Tables[0].Rows[0][2].ToString();
+                        string phone2 = ds1.Tables[0].Rows[0][3].ToString();
+                        string city2 = ds1.Tables[0].Rows[0][4].ToString();
+                        string country2 = ds1.Tables[0].Rows[0][5].ToString();
+
+                        lblFLName.Text = (firstname.Trim() + " " + lastname.Trim());
+                        lblUserEmail.Text = email2.Trim();
+                        lblPNumber.Text = phone2.Trim();
+                        lblCity.Text = city2.Trim();
+                        lblCountry.Text = country2.Trim();
+                    }
                 }
 
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Couldn't update your account, Error Generated: " + ex);
-                }
+                    MessageBox.Show("Please verify your current password");
 
-                finally
-                {
-                    txtFName.Text = "First Name";
-                    txtFName.ForeColor = Color.Gray;
-
-                    txtLName.Text = "Last Name";
-                    txtLName.ForeColor = Color.Gray;
-
-                    txtEmail.Text = "E-mail";
-                    txtEmail.ForeColor = Color.Gray;
-
-                    txtPhone.Text = "Mobile Number";
-                    txtPhone.ForeColor = Color.Gray;
-
-                    txtCity.Text = "City";
-                    txtCity.ForeColor = Color.Gray;
-
-                    txtCountry.Text = "Country";
-                    txtCountry.ForeColor = Color.Gray;
-
+                    txtCurrentPass.PasswordChar = '\0';
                     txtCurrentPass.Text = "Current Password";
                     txtCurrentPass.ForeColor = Color.Gray;
 
+                    txtNewPass.PasswordChar = '\0';
                     txtNewPass.Text = "New Password";
                     txtNewPass.ForeColor = Color.Gray;
-
-                    SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideDB.mdf;Integrated Security=True;Connect Timeout=30");
-                    string qry2 = "Select FName,LName,Email,Phone,City,Country from tblUser where Username='" + uName + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(qry2, con2);
-                    DataSet ds = new DataSet();
-                    sda.Fill(ds, "tblUser");
-
-                    string firstname = ds.Tables[0].Rows[0][0].ToString();
-                    string lastname = ds.Tables[0].Rows[0][1].ToString();
-                    string email2 = ds.Tables[0].Rows[0][2].ToString();
-                    string phone2 = ds.Tables[0].Rows[0][3].ToString();
-                    string city2 = ds.Tables[0].Rows[0][4].ToString();
-                    string country2 = ds.Tables[0].Rows[0][5].ToString();
-
-                    lblFLName.Text = (firstname.Trim() + " " + lastname.Trim());
-                    lblUserEmail.Text = email2.Trim();
-                    lblPNumber.Text = phone2.Trim();
-                    lblCity.Text = city2.Trim();
-                    lblCountry.Text = country2.Trim();
                 }
+
+            }
+        }
+
+        private void linkDelAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Delete from tblUser Where Username ='" + uName + "'";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Account deleted successfully, Please log in");
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't delete your account, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                formLogin frmLogin = new formLogin();
+                frmLogin.Show();
+                this.Hide();
             }
         }
     }

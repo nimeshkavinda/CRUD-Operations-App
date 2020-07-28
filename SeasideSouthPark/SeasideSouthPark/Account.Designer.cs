@@ -35,6 +35,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlAccBg = new System.Windows.Forms.Panel();
+            this.linkDelAcc = new System.Windows.Forms.LinkLabel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtNewPass = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             this.picboxLine = new System.Windows.Forms.PictureBox();
             this.picboxUser = new System.Windows.Forms.PictureBox();
             this.opnfileDlg = new System.Windows.Forms.OpenFileDialog();
+            this.linkSaveImg = new System.Windows.Forms.LinkLabel();
             this.ctrlBar.SuspendLayout();
             this.pnlAccBg.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -134,6 +136,8 @@
             // 
             this.pnlAccBg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlAccBg.BackgroundImage")));
             this.pnlAccBg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlAccBg.Controls.Add(this.linkSaveImg);
+            this.pnlAccBg.Controls.Add(this.linkDelAcc);
             this.pnlAccBg.Controls.Add(this.btnUpdate);
             this.pnlAccBg.Controls.Add(this.panel7);
             this.pnlAccBg.Controls.Add(this.panel3);
@@ -156,6 +160,21 @@
             this.pnlAccBg.Name = "pnlAccBg";
             this.pnlAccBg.Size = new System.Drawing.Size(800, 565);
             this.pnlAccBg.TabIndex = 6;
+            // 
+            // linkDelAcc
+            // 
+            this.linkDelAcc.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkDelAcc.AutoSize = true;
+            this.linkDelAcc.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkDelAcc.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkDelAcc.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkDelAcc.Location = new System.Drawing.Point(150, 130);
+            this.linkDelAcc.Name = "linkDelAcc";
+            this.linkDelAcc.Size = new System.Drawing.Size(91, 16);
+            this.linkDelAcc.TabIndex = 30;
+            this.linkDelAcc.TabStop = true;
+            this.linkDelAcc.Text = "Delete account";
+            this.linkDelAcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDelAcc_LinkClicked);
             // 
             // btnUpdate
             // 
@@ -382,7 +401,7 @@
             this.linkImgUpload.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkImgUpload.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkImgUpload.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkImgUpload.Location = new System.Drawing.Point(147, 134);
+            this.linkImgUpload.Location = new System.Drawing.Point(150, 72);
             this.linkImgUpload.Name = "linkImgUpload";
             this.linkImgUpload.Size = new System.Drawing.Size(85, 16);
             this.linkImgUpload.TabIndex = 19;
@@ -451,12 +470,28 @@
             this.picboxUser.Location = new System.Drawing.Point(41, 50);
             this.picboxUser.Name = "picboxUser";
             this.picboxUser.Size = new System.Drawing.Size(100, 100);
+            this.picboxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxUser.TabIndex = 9;
             this.picboxUser.TabStop = false;
             // 
             // opnfileDlg
             // 
             this.opnfileDlg.FileName = "Select an Image";
+            // 
+            // linkSaveImg
+            // 
+            this.linkSaveImg.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkSaveImg.AutoSize = true;
+            this.linkSaveImg.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkSaveImg.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkSaveImg.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkSaveImg.Location = new System.Drawing.Point(150, 108);
+            this.linkSaveImg.Name = "linkSaveImg";
+            this.linkSaveImg.Size = new System.Drawing.Size(82, 16);
+            this.linkSaveImg.TabIndex = 31;
+            this.linkSaveImg.TabStop = true;
+            this.linkSaveImg.Text = "Save changes";
+            this.linkSaveImg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaveImg_LinkClicked);
             // 
             // formAccount
             // 
@@ -530,5 +565,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.LinkLabel linkDelAcc;
+        private System.Windows.Forms.LinkLabel linkSaveImg;
     }
 }

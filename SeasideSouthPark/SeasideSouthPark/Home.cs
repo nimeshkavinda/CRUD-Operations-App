@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SeasideSouthPark
 {
     public partial class formHome : Form
     {
+        string uName;
+        string chkindate;
+        string chkoutdate;
+
         public void hidePanels()
         {
             pnlWelcome.Visible = false;
@@ -22,6 +27,14 @@ namespace SeasideSouthPark
         {
             InitializeComponent();
             lblUser.Text = username;
+            uName = username;
+            dtChkIn.Value = DateTime.Today;
+            dtChkOut.Value = DateTime.Today;
+            dtChkIn.MinDate = DateTime.Today;
+            dtChkOut.MinDate = DateTime.Today;
+            chkindate = dtChkIn.Value.ToString("yyyy/MM/dd");
+            chkoutdate = dtChkIn.Value.ToString("yyyy/MM/dd");
+
         }
 
         private void formHome_Load(object sender, EventArgs e)
@@ -186,6 +199,51 @@ namespace SeasideSouthPark
             formSignUp frmSignUp = new formSignUp();
             frmSignUp.Show();
             this.Hide();
+        }
+
+        private void btnFindRoom_Click(object sender, EventArgs e)
+        {
+            string chkin = dtChkIn.Value.ToString("yyyy/MM/dd");
+            string chkout = dtChkOut.Value.ToString("yyyy/MM/dd");
+
+            if (chkin == chkindate || chkout == chkoutdate)
+            {
+                MessageBox.Show("Please select Check-In and Check-Out dates.\nAlso note that you can't check-in for today. Please pick a date from tomorrow onwards to check-in");
+            }
+            else
+            {
+                if (slctRoomType.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select the room type");
+                }
+
+                else
+                {
+                    try
+                    {
+                        SqlConnection con = new SqlConnection(Global.ConnectionString);
+                        string qry = "Select RoomID from tblRoom Where Checkin='" + null + "' and Checkout='" + null + "' and RoomType='" + slctRoomType.SelectedText + "'";
+                        SqlDataAdapter sda = new SqlDataAdapter(qry, con);
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        hidePanels();
+                        pnlBook.Visible = true;
+                    }
+
+                    catch (Exception)
+                    {
+                        MessageBox.Show("There are no available rooms");
+                    }
+
+                    finally
+                    {
+                        dtChkIn.Value = DateTime.Today;
+                        dtChkOut.Value = DateTime.Today;
+                        slctRoomType.Text = "Please select room";
+                    }
+
+                }
+            }
         }
     }
 }

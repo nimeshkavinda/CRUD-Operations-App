@@ -35,6 +35,9 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.linkRegUser = new System.Windows.Forms.LinkLabel();
+            this.linkQuit = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnContact = new System.Windows.Forms.Button();
@@ -52,13 +55,19 @@
             this.linkSahan = new System.Windows.Forms.LinkLabel();
             this.linkNimesh = new System.Windows.Forms.LinkLabel();
             this.linkFeedback = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.linkQuit = new System.Windows.Forms.LinkLabel();
-            this.linkRegUser = new System.Windows.Forms.LinkLabel();
+            this.pnlBook = new System.Windows.Forms.Panel();
+            this.dtChkIn = new System.Windows.Forms.DateTimePicker();
+            this.dtChkOut = new System.Windows.Forms.DateTimePicker();
+            this.slctRoomType = new System.Windows.Forms.ComboBox();
+            this.btnFindRoom = new System.Windows.Forms.Button();
+            this.lblChkIn = new System.Windows.Forms.Label();
+            this.lblChkOut = new System.Windows.Forms.Label();
+            this.lblRoomType = new System.Windows.Forms.Label();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).BeginInit();
+            this.pnlWelcome.SuspendLayout();
             this.pnlContact.SuspendLayout();
             this.pnlWeb.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +142,49 @@
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(250, 625);
             this.pnlSideMenu.TabIndex = 6;
+            // 
+            // linkRegUser
+            // 
+            this.linkRegUser.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkRegUser.AutoSize = true;
+            this.linkRegUser.BackColor = System.Drawing.Color.Transparent;
+            this.linkRegUser.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRegUser.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkRegUser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkRegUser.Location = new System.Drawing.Point(67, 559);
+            this.linkRegUser.Name = "linkRegUser";
+            this.linkRegUser.Size = new System.Drawing.Size(158, 19);
+            this.linkRegUser.TabIndex = 22;
+            this.linkRegUser.TabStop = true;
+            this.linkRegUser.Text = "Register Another User";
+            this.linkRegUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegUser_LinkClicked);
+            // 
+            // linkQuit
+            // 
+            this.linkQuit.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkQuit.AutoSize = true;
+            this.linkQuit.BackColor = System.Drawing.Color.Transparent;
+            this.linkQuit.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkQuit.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkQuit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkQuit.Location = new System.Drawing.Point(24, 559);
+            this.linkQuit.Name = "linkQuit";
+            this.linkQuit.Size = new System.Drawing.Size(37, 19);
+            this.linkQuit.TabIndex = 21;
+            this.linkQuit.TabStop = true;
+            this.linkQuit.Text = "Quit";
+            this.linkQuit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuit_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(22, 594);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "© Seaside South Park. All Rights Reserved.";
             // 
             // pnlMenu
             // 
@@ -282,6 +334,13 @@
             // 
             this.pnlWelcome.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlWelcome.BackgroundImage")));
             this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlWelcome.Controls.Add(this.lblRoomType);
+            this.pnlWelcome.Controls.Add(this.lblChkOut);
+            this.pnlWelcome.Controls.Add(this.lblChkIn);
+            this.pnlWelcome.Controls.Add(this.btnFindRoom);
+            this.pnlWelcome.Controls.Add(this.slctRoomType);
+            this.pnlWelcome.Controls.Add(this.dtChkOut);
+            this.pnlWelcome.Controls.Add(this.dtChkIn);
             this.pnlWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlWelcome.Location = new System.Drawing.Point(250, 35);
             this.pnlWelcome.Name = "pnlWelcome";
@@ -385,48 +444,91 @@
             this.linkFeedback.Text = "seasidesouthpark@gmail.com";
             this.linkFeedback.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFeedback_LinkClicked);
             // 
-            // label1
+            // pnlBook
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(22, 594);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "© Seaside South Park. All Rights Reserved.";
+            this.pnlBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBook.Location = new System.Drawing.Point(250, 35);
+            this.pnlBook.Name = "pnlBook";
+            this.pnlBook.Size = new System.Drawing.Size(930, 625);
+            this.pnlBook.TabIndex = 26;
             // 
-            // linkQuit
+            // dtChkIn
             // 
-            this.linkQuit.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkQuit.AutoSize = true;
-            this.linkQuit.BackColor = System.Drawing.Color.Transparent;
-            this.linkQuit.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkQuit.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkQuit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkQuit.Location = new System.Drawing.Point(24, 559);
-            this.linkQuit.Name = "linkQuit";
-            this.linkQuit.Size = new System.Drawing.Size(37, 19);
-            this.linkQuit.TabIndex = 21;
-            this.linkQuit.TabStop = true;
-            this.linkQuit.Text = "Quit";
-            this.linkQuit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuit_LinkClicked);
+            this.dtChkIn.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtChkIn.Location = new System.Drawing.Point(34, 260);
+            this.dtChkIn.Name = "dtChkIn";
+            this.dtChkIn.Size = new System.Drawing.Size(265, 27);
+            this.dtChkIn.TabIndex = 0;
             // 
-            // linkRegUser
+            // dtChkOut
             // 
-            this.linkRegUser.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkRegUser.AutoSize = true;
-            this.linkRegUser.BackColor = System.Drawing.Color.Transparent;
-            this.linkRegUser.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkRegUser.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkRegUser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkRegUser.Location = new System.Drawing.Point(67, 559);
-            this.linkRegUser.Name = "linkRegUser";
-            this.linkRegUser.Size = new System.Drawing.Size(158, 19);
-            this.linkRegUser.TabIndex = 22;
-            this.linkRegUser.TabStop = true;
-            this.linkRegUser.Text = "Register Another User";
-            this.linkRegUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegUser_LinkClicked);
+            this.dtChkOut.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtChkOut.Location = new System.Drawing.Point(331, 260);
+            this.dtChkOut.Name = "dtChkOut";
+            this.dtChkOut.Size = new System.Drawing.Size(265, 27);
+            this.dtChkOut.TabIndex = 1;
+            // 
+            // slctRoomType
+            // 
+            this.slctRoomType.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctRoomType.FormattingEnabled = true;
+            this.slctRoomType.Items.AddRange(new object[] {
+            "Solo",
+            "Couple",
+            "Family"});
+            this.slctRoomType.Location = new System.Drawing.Point(145, 314);
+            this.slctRoomType.Name = "slctRoomType";
+            this.slctRoomType.Size = new System.Drawing.Size(154, 27);
+            this.slctRoomType.TabIndex = 2;
+            this.slctRoomType.Text = "Please select room";
+            // 
+            // btnFindRoom
+            // 
+            this.btnFindRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnFindRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindRoom.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindRoom.ForeColor = System.Drawing.Color.White;
+            this.btnFindRoom.Location = new System.Drawing.Point(362, 309);
+            this.btnFindRoom.Name = "btnFindRoom";
+            this.btnFindRoom.Size = new System.Drawing.Size(234, 35);
+            this.btnFindRoom.TabIndex = 9;
+            this.btnFindRoom.Text = "Check Availability";
+            this.btnFindRoom.UseVisualStyleBackColor = false;
+            this.btnFindRoom.Click += new System.EventHandler(this.btnFindRoom_Click);
+            // 
+            // lblChkIn
+            // 
+            this.lblChkIn.AutoSize = true;
+            this.lblChkIn.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChkIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblChkIn.Location = new System.Drawing.Point(30, 226);
+            this.lblChkIn.Name = "lblChkIn";
+            this.lblChkIn.Size = new System.Drawing.Size(87, 23);
+            this.lblChkIn.TabIndex = 23;
+            this.lblChkIn.Text = "Check-In:";
+            // 
+            // lblChkOut
+            // 
+            this.lblChkOut.AutoSize = true;
+            this.lblChkOut.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChkOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblChkOut.Location = new System.Drawing.Point(327, 226);
+            this.lblChkOut.Name = "lblChkOut";
+            this.lblChkOut.Size = new System.Drawing.Size(103, 23);
+            this.lblChkOut.TabIndex = 24;
+            this.lblChkOut.Text = "Check-Out:";
+            // 
+            // lblRoomType
+            // 
+            this.lblRoomType.AutoSize = true;
+            this.lblRoomType.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblRoomType.Location = new System.Drawing.Point(30, 314);
+            this.lblRoomType.Name = "lblRoomType";
+            this.lblRoomType.Size = new System.Drawing.Size(109, 23);
+            this.lblRoomType.TabIndex = 25;
+            this.lblRoomType.Text = "Room Type:";
             // 
             // formHome
             // 
@@ -435,6 +537,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 660);
             this.Controls.Add(this.pnlWelcome);
+            this.Controls.Add(this.pnlBook);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.ctrlBar);
@@ -450,6 +553,8 @@
             this.pnlSideMenu.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picboxUser)).EndInit();
+            this.pnlWelcome.ResumeLayout(false);
+            this.pnlWelcome.PerformLayout();
             this.pnlContact.ResumeLayout(false);
             this.pnlContact.PerformLayout();
             this.pnlWeb.ResumeLayout(false);
@@ -484,5 +589,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkRegUser;
         private System.Windows.Forms.LinkLabel linkQuit;
+        private System.Windows.Forms.Panel pnlBook;
+        private System.Windows.Forms.ComboBox slctRoomType;
+        private System.Windows.Forms.DateTimePicker dtChkOut;
+        private System.Windows.Forms.DateTimePicker dtChkIn;
+        private System.Windows.Forms.Button btnFindRoom;
+        private System.Windows.Forms.Label lblChkOut;
+        private System.Windows.Forms.Label lblChkIn;
+        private System.Windows.Forms.Label lblRoomType;
     }
 }

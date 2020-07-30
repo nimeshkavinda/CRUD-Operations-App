@@ -35,6 +35,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlAccBg = new System.Windows.Forms.Panel();
+            this.linkSaveImg = new System.Windows.Forms.LinkLabel();
             this.linkDelAcc = new System.Windows.Forms.LinkLabel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -62,7 +63,6 @@
             this.picboxLine = new System.Windows.Forms.PictureBox();
             this.picboxUser = new System.Windows.Forms.PictureBox();
             this.opnfileDlg = new System.Windows.Forms.OpenFileDialog();
-            this.linkSaveImg = new System.Windows.Forms.LinkLabel();
             this.ctrlBar.SuspendLayout();
             this.pnlAccBg.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -160,6 +160,21 @@
             this.pnlAccBg.Name = "pnlAccBg";
             this.pnlAccBg.Size = new System.Drawing.Size(800, 565);
             this.pnlAccBg.TabIndex = 6;
+            // 
+            // linkSaveImg
+            // 
+            this.linkSaveImg.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
+            this.linkSaveImg.AutoSize = true;
+            this.linkSaveImg.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkSaveImg.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkSaveImg.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.linkSaveImg.Location = new System.Drawing.Point(150, 108);
+            this.linkSaveImg.Name = "linkSaveImg";
+            this.linkSaveImg.Size = new System.Drawing.Size(82, 16);
+            this.linkSaveImg.TabIndex = 31;
+            this.linkSaveImg.TabStop = true;
+            this.linkSaveImg.Text = "Save changes";
+            this.linkSaveImg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaveImg_LinkClicked);
             // 
             // linkDelAcc
             // 
@@ -477,21 +492,6 @@
             // opnfileDlg
             // 
             this.opnfileDlg.FileName = "Select an Image";
-            // 
-            // linkSaveImg
-            // 
-            this.linkSaveImg.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkSaveImg.AutoSize = true;
-            this.linkSaveImg.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkSaveImg.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkSaveImg.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkSaveImg.Location = new System.Drawing.Point(150, 108);
-            this.linkSaveImg.Name = "linkSaveImg";
-            this.linkSaveImg.Size = new System.Drawing.Size(82, 16);
-            this.linkSaveImg.TabIndex = 31;
-            this.linkSaveImg.TabStop = true;
-            this.linkSaveImg.Text = "Save changes";
-            this.linkSaveImg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaveImg_LinkClicked);
             // 
             // formAccount
             // 

@@ -37,7 +37,7 @@
             this.pnlSideMenu = new System.Windows.Forms.Panel();
             this.linkRegUser = new System.Windows.Forms.LinkLabel();
             this.linkQuit = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHello = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnContact = new System.Windows.Forms.Button();
@@ -48,6 +48,13 @@
             this.picboxUser = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlWelcome = new System.Windows.Forms.Panel();
+            this.lblRoomType = new System.Windows.Forms.Label();
+            this.lblChkOut = new System.Windows.Forms.Label();
+            this.lblChkIn = new System.Windows.Forms.Label();
+            this.btnFindRoom = new System.Windows.Forms.Button();
+            this.slctRoomType = new System.Windows.Forms.ComboBox();
+            this.dtChkOut = new System.Windows.Forms.DateTimePicker();
+            this.dtChkIn = new System.Windows.Forms.DateTimePicker();
             this.pnlContact = new System.Windows.Forms.Panel();
             this.pnlWeb = new System.Windows.Forms.Panel();
             this.webMap = new System.Windows.Forms.WebBrowser();
@@ -56,13 +63,6 @@
             this.linkNimesh = new System.Windows.Forms.LinkLabel();
             this.linkFeedback = new System.Windows.Forms.LinkLabel();
             this.pnlBook = new System.Windows.Forms.Panel();
-            this.dtChkIn = new System.Windows.Forms.DateTimePicker();
-            this.dtChkOut = new System.Windows.Forms.DateTimePicker();
-            this.slctRoomType = new System.Windows.Forms.ComboBox();
-            this.btnFindRoom = new System.Windows.Forms.Button();
-            this.lblChkIn = new System.Windows.Forms.Label();
-            this.lblChkOut = new System.Windows.Forms.Label();
-            this.lblRoomType = new System.Windows.Forms.Label();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -132,7 +132,7 @@
             this.pnlSideMenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlSideMenu.Controls.Add(this.linkRegUser);
             this.pnlSideMenu.Controls.Add(this.linkQuit);
-            this.pnlSideMenu.Controls.Add(this.label1);
+            this.pnlSideMenu.Controls.Add(this.lblHello);
             this.pnlSideMenu.Controls.Add(this.pnlMenu);
             this.pnlSideMenu.Controls.Add(this.pnlHello);
             this.pnlSideMenu.Controls.Add(this.picboxUser);
@@ -175,16 +175,16 @@
             this.linkQuit.Text = "Quit";
             this.linkQuit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuit_LinkClicked);
             // 
-            // label1
+            // lblHello
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(22, 594);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "© Seaside South Park. All Rights Reserved.";
+            this.lblHello.AutoSize = true;
+            this.lblHello.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHello.ForeColor = System.Drawing.Color.Gray;
+            this.lblHello.Location = new System.Drawing.Point(22, 594);
+            this.lblHello.Name = "lblHello";
+            this.lblHello.Size = new System.Drawing.Size(202, 13);
+            this.lblHello.TabIndex = 12;
+            this.lblHello.Text = "© Seaside South Park. All Rights Reserved.";
             // 
             // pnlMenu
             // 
@@ -347,6 +347,83 @@
             this.pnlWelcome.Size = new System.Drawing.Size(930, 625);
             this.pnlWelcome.TabIndex = 7;
             // 
+            // lblRoomType
+            // 
+            this.lblRoomType.AutoSize = true;
+            this.lblRoomType.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblRoomType.Location = new System.Drawing.Point(30, 314);
+            this.lblRoomType.Name = "lblRoomType";
+            this.lblRoomType.Size = new System.Drawing.Size(109, 23);
+            this.lblRoomType.TabIndex = 25;
+            this.lblRoomType.Text = "Room Type:";
+            // 
+            // lblChkOut
+            // 
+            this.lblChkOut.AutoSize = true;
+            this.lblChkOut.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChkOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblChkOut.Location = new System.Drawing.Point(327, 226);
+            this.lblChkOut.Name = "lblChkOut";
+            this.lblChkOut.Size = new System.Drawing.Size(103, 23);
+            this.lblChkOut.TabIndex = 24;
+            this.lblChkOut.Text = "Check-Out:";
+            // 
+            // lblChkIn
+            // 
+            this.lblChkIn.AutoSize = true;
+            this.lblChkIn.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChkIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.lblChkIn.Location = new System.Drawing.Point(30, 226);
+            this.lblChkIn.Name = "lblChkIn";
+            this.lblChkIn.Size = new System.Drawing.Size(87, 23);
+            this.lblChkIn.TabIndex = 23;
+            this.lblChkIn.Text = "Check-In:";
+            // 
+            // btnFindRoom
+            // 
+            this.btnFindRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnFindRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindRoom.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindRoom.ForeColor = System.Drawing.Color.White;
+            this.btnFindRoom.Location = new System.Drawing.Point(362, 309);
+            this.btnFindRoom.Name = "btnFindRoom";
+            this.btnFindRoom.Size = new System.Drawing.Size(234, 35);
+            this.btnFindRoom.TabIndex = 9;
+            this.btnFindRoom.Text = "Check Availability";
+            this.btnFindRoom.UseVisualStyleBackColor = false;
+            this.btnFindRoom.Click += new System.EventHandler(this.btnFindRoom_Click);
+            // 
+            // slctRoomType
+            // 
+            this.slctRoomType.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctRoomType.FormattingEnabled = true;
+            this.slctRoomType.Items.AddRange(new object[] {
+            "Solo",
+            "Couple",
+            "Family"});
+            this.slctRoomType.Location = new System.Drawing.Point(145, 314);
+            this.slctRoomType.Name = "slctRoomType";
+            this.slctRoomType.Size = new System.Drawing.Size(154, 27);
+            this.slctRoomType.TabIndex = 2;
+            this.slctRoomType.Text = "Please select room";
+            // 
+            // dtChkOut
+            // 
+            this.dtChkOut.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtChkOut.Location = new System.Drawing.Point(331, 260);
+            this.dtChkOut.Name = "dtChkOut";
+            this.dtChkOut.Size = new System.Drawing.Size(265, 27);
+            this.dtChkOut.TabIndex = 1;
+            // 
+            // dtChkIn
+            // 
+            this.dtChkIn.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtChkIn.Location = new System.Drawing.Point(34, 260);
+            this.dtChkIn.Name = "dtChkIn";
+            this.dtChkIn.Size = new System.Drawing.Size(265, 27);
+            this.dtChkIn.TabIndex = 0;
+            // 
             // pnlContact
             // 
             this.pnlContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlContact.BackgroundImage")));
@@ -453,83 +530,6 @@
             this.pnlBook.Size = new System.Drawing.Size(930, 625);
             this.pnlBook.TabIndex = 26;
             // 
-            // dtChkIn
-            // 
-            this.dtChkIn.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtChkIn.Location = new System.Drawing.Point(34, 260);
-            this.dtChkIn.Name = "dtChkIn";
-            this.dtChkIn.Size = new System.Drawing.Size(265, 27);
-            this.dtChkIn.TabIndex = 0;
-            // 
-            // dtChkOut
-            // 
-            this.dtChkOut.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtChkOut.Location = new System.Drawing.Point(331, 260);
-            this.dtChkOut.Name = "dtChkOut";
-            this.dtChkOut.Size = new System.Drawing.Size(265, 27);
-            this.dtChkOut.TabIndex = 1;
-            // 
-            // slctRoomType
-            // 
-            this.slctRoomType.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slctRoomType.FormattingEnabled = true;
-            this.slctRoomType.Items.AddRange(new object[] {
-            "Solo",
-            "Couple",
-            "Family"});
-            this.slctRoomType.Location = new System.Drawing.Point(145, 314);
-            this.slctRoomType.Name = "slctRoomType";
-            this.slctRoomType.Size = new System.Drawing.Size(154, 27);
-            this.slctRoomType.TabIndex = 2;
-            this.slctRoomType.Text = "Please select room";
-            // 
-            // btnFindRoom
-            // 
-            this.btnFindRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.btnFindRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindRoom.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindRoom.ForeColor = System.Drawing.Color.White;
-            this.btnFindRoom.Location = new System.Drawing.Point(362, 309);
-            this.btnFindRoom.Name = "btnFindRoom";
-            this.btnFindRoom.Size = new System.Drawing.Size(234, 35);
-            this.btnFindRoom.TabIndex = 9;
-            this.btnFindRoom.Text = "Check Availability";
-            this.btnFindRoom.UseVisualStyleBackColor = false;
-            this.btnFindRoom.Click += new System.EventHandler(this.btnFindRoom_Click);
-            // 
-            // lblChkIn
-            // 
-            this.lblChkIn.AutoSize = true;
-            this.lblChkIn.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChkIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblChkIn.Location = new System.Drawing.Point(30, 226);
-            this.lblChkIn.Name = "lblChkIn";
-            this.lblChkIn.Size = new System.Drawing.Size(87, 23);
-            this.lblChkIn.TabIndex = 23;
-            this.lblChkIn.Text = "Check-In:";
-            // 
-            // lblChkOut
-            // 
-            this.lblChkOut.AutoSize = true;
-            this.lblChkOut.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChkOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblChkOut.Location = new System.Drawing.Point(327, 226);
-            this.lblChkOut.Name = "lblChkOut";
-            this.lblChkOut.Size = new System.Drawing.Size(103, 23);
-            this.lblChkOut.TabIndex = 24;
-            this.lblChkOut.Text = "Check-Out:";
-            // 
-            // lblRoomType
-            // 
-            this.lblRoomType.AutoSize = true;
-            this.lblRoomType.Font = new System.Drawing.Font("Cabin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.lblRoomType.Location = new System.Drawing.Point(30, 314);
-            this.lblRoomType.Name = "lblRoomType";
-            this.lblRoomType.Size = new System.Drawing.Size(109, 23);
-            this.lblRoomType.TabIndex = 25;
-            this.lblRoomType.Text = "Room Type:";
-            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,8 +537,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 660);
             this.Controls.Add(this.pnlWelcome);
-            this.Controls.Add(this.pnlBook);
             this.Controls.Add(this.pnlContact);
+            this.Controls.Add(this.pnlBook);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.ctrlBar);
             this.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -586,7 +586,7 @@
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Button btnMngAcc;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHello;
         private System.Windows.Forms.LinkLabel linkRegUser;
         private System.Windows.Forms.LinkLabel linkQuit;
         private System.Windows.Forms.Panel pnlBook;

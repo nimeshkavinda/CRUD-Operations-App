@@ -21,6 +21,7 @@ namespace SeasideSouthPark
         {
             pnlWelcome.Visible = false;
             pnlContact.Visible = false;
+            pnlBook.Visible = false;
         }
 
         public formHome(string username)

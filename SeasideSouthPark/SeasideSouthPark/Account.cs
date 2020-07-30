@@ -139,8 +139,30 @@ namespace SeasideSouthPark
 
                     else
                     {
+                        connection.Close();
                         MemoryStream ms = new MemoryStream(img);
-                        picboxUser.Image = Image.FromStream(ms);
+                       // picboxUser.Image = Image.FromStream(ms);
+
+
+                        byte[] getImg = new byte[0];
+                        SqlCommand cmd = new SqlCommand("Select ProImg from tblUser Where Username = '" + uName + "'", connection);
+                        cmd.CommandType = CommandType.Text;
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            getImg = (byte[])dr["ProImg"];
+                        }
+
+                        byte[] imgData = getImg;
+                        MemoryStream stream = new MemoryStream(imgData);
+                        var newImage = System.Drawing.Image.FromStream(stream);
+                        stream.Dispose();
+                        picboxUser.Image = newImage;
+
+
+
                     }
                 }
 
@@ -356,7 +378,7 @@ namespace SeasideSouthPark
 
                 string pw = ds.Tables[0].Rows[0][0].ToString();
 
-                if (currentpass == pw)
+                if (pw.Trim()==currentpass.Trim())
                 {
                     SqlConnection con1 = new SqlConnection(Global.ConnectionString);
                     string qry1 = "Update tblUser Set FName='" + fname + "', LName='" + lname + "', Email='" + email + "', Phone='" + phone + "', City='" + city + "', Country='" + country + "', Password='" + newpass + "' Where Username ='" + uName + "'";
@@ -402,11 +424,13 @@ namespace SeasideSouthPark
                         txtNewPass.Text = "New Password";
                         txtNewPass.ForeColor = Color.Gray;
 
+                        con.Close();
+
                         SqlConnection con2 = new SqlConnection(Global.ConnectionString);
                         string qry2 = "Select FName,LName,Email,Phone,City,Country from tblUser where Username='" + uName + "'";
                         SqlDataAdapter sda1 = new SqlDataAdapter(qry2, con2);
                         DataSet ds1 = new DataSet();
-                        sda.Fill(ds1, "tblUser");
+                        sda1.Fill(ds1, "tblUser");
 
                         string firstname = ds1.Tables[0].Rows[0][0].ToString();
                         string lastname = ds1.Tables[0].Rows[0][1].ToString();

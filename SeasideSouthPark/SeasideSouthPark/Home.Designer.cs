@@ -63,18 +63,18 @@
             this.linkNimesh = new System.Windows.Forms.LinkLabel();
             this.linkFeedback = new System.Windows.Forms.LinkLabel();
             this.pnlBook = new System.Windows.Forms.Panel();
-            this.pnlroomS1 = new System.Windows.Forms.Panel();
-            this.pnlroomS2 = new System.Windows.Forms.Panel();
-            this.btnReserveS1 = new System.Windows.Forms.Button();
-            this.btnReserveS2 = new System.Windows.Forms.Button();
-            this.pnlroomC1 = new System.Windows.Forms.Panel();
-            this.btnReserveC1 = new System.Windows.Forms.Button();
-            this.pnlroomC2 = new System.Windows.Forms.Panel();
-            this.btnReserveC2 = new System.Windows.Forms.Button();
             this.pnlroomF1 = new System.Windows.Forms.Panel();
             this.btnReserveF1 = new System.Windows.Forms.Button();
             this.pnlroomF2 = new System.Windows.Forms.Panel();
             this.btnReserveF2 = new System.Windows.Forms.Button();
+            this.pnlroomC1 = new System.Windows.Forms.Panel();
+            this.btnReserveC1 = new System.Windows.Forms.Button();
+            this.pnlroomC2 = new System.Windows.Forms.Panel();
+            this.btnReserveC2 = new System.Windows.Forms.Button();
+            this.pnlroomS1 = new System.Windows.Forms.Panel();
+            this.btnReserveS1 = new System.Windows.Forms.Button();
+            this.pnlroomS2 = new System.Windows.Forms.Panel();
+            this.btnReserveS2 = new System.Windows.Forms.Button();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -83,12 +83,12 @@
             this.pnlContact.SuspendLayout();
             this.pnlWeb.SuspendLayout();
             this.pnlBook.SuspendLayout();
-            this.pnlroomS1.SuspendLayout();
-            this.pnlroomS2.SuspendLayout();
-            this.pnlroomC1.SuspendLayout();
-            this.pnlroomC2.SuspendLayout();
             this.pnlroomF1.SuspendLayout();
             this.pnlroomF2.SuspendLayout();
+            this.pnlroomC1.SuspendLayout();
+            this.pnlroomC2.SuspendLayout();
+            this.pnlroomS1.SuspendLayout();
+            this.pnlroomS2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctrlBar
@@ -557,53 +557,53 @@
             this.pnlBook.TabIndex = 26;
             this.pnlBook.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBook_Paint);
             // 
-            // pnlroomS1
+            // pnlroomF1
             // 
-            this.pnlroomS1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomS1.BackgroundImage")));
-            this.pnlroomS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlroomS1.Controls.Add(this.btnReserveS1);
-            this.pnlroomS1.Location = new System.Drawing.Point(34, 111);
-            this.pnlroomS1.Name = "pnlroomS1";
-            this.pnlroomS1.Size = new System.Drawing.Size(863, 200);
-            this.pnlroomS1.TabIndex = 0;
+            this.pnlroomF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomF1.BackgroundImage")));
+            this.pnlroomF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlroomF1.Controls.Add(this.btnReserveF1);
+            this.pnlroomF1.Location = new System.Drawing.Point(34, 110);
+            this.pnlroomF1.Name = "pnlroomF1";
+            this.pnlroomF1.Size = new System.Drawing.Size(863, 200);
+            this.pnlroomF1.TabIndex = 11;
             // 
-            // pnlroomS2
+            // btnReserveF1
             // 
-            this.pnlroomS2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomS2.BackgroundImage")));
-            this.pnlroomS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlroomS2.Controls.Add(this.btnReserveS2);
-            this.pnlroomS2.Location = new System.Drawing.Point(34, 347);
-            this.pnlroomS2.Name = "pnlroomS2";
-            this.pnlroomS2.Size = new System.Drawing.Size(863, 200);
-            this.pnlroomS2.TabIndex = 1;
+            this.btnReserveF1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnReserveF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReserveF1.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReserveF1.ForeColor = System.Drawing.Color.White;
+            this.btnReserveF1.Location = new System.Drawing.Point(675, 110);
+            this.btnReserveF1.Name = "btnReserveF1";
+            this.btnReserveF1.Size = new System.Drawing.Size(140, 35);
+            this.btnReserveF1.TabIndex = 9;
+            this.btnReserveF1.Text = "Reserve";
+            this.btnReserveF1.UseVisualStyleBackColor = false;
+            this.btnReserveF1.Click += new System.EventHandler(this.btnReserveF1_Click);
             // 
-            // btnReserveS1
+            // pnlroomF2
             // 
-            this.btnReserveS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.btnReserveS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserveS1.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReserveS1.ForeColor = System.Drawing.Color.White;
-            this.btnReserveS1.Location = new System.Drawing.Point(675, 110);
-            this.btnReserveS1.Name = "btnReserveS1";
-            this.btnReserveS1.Size = new System.Drawing.Size(140, 35);
-            this.btnReserveS1.TabIndex = 9;
-            this.btnReserveS1.Text = "Reserve";
-            this.btnReserveS1.UseVisualStyleBackColor = false;
-            this.btnReserveS1.Click += new System.EventHandler(this.btnReserveS1_Click);
+            this.pnlroomF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomF2.BackgroundImage")));
+            this.pnlroomF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlroomF2.Controls.Add(this.btnReserveF2);
+            this.pnlroomF2.Location = new System.Drawing.Point(34, 347);
+            this.pnlroomF2.Name = "pnlroomF2";
+            this.pnlroomF2.Size = new System.Drawing.Size(863, 200);
+            this.pnlroomF2.TabIndex = 12;
             // 
-            // btnReserveS2
+            // btnReserveF2
             // 
-            this.btnReserveS2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.btnReserveS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserveS2.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReserveS2.ForeColor = System.Drawing.Color.White;
-            this.btnReserveS2.Location = new System.Drawing.Point(675, 109);
-            this.btnReserveS2.Name = "btnReserveS2";
-            this.btnReserveS2.Size = new System.Drawing.Size(140, 35);
-            this.btnReserveS2.TabIndex = 10;
-            this.btnReserveS2.Text = "Reserve";
-            this.btnReserveS2.UseVisualStyleBackColor = false;
-            this.btnReserveS2.Click += new System.EventHandler(this.btnReserveS2_Click);
+            this.btnReserveF2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnReserveF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReserveF2.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReserveF2.ForeColor = System.Drawing.Color.White;
+            this.btnReserveF2.Location = new System.Drawing.Point(675, 110);
+            this.btnReserveF2.Name = "btnReserveF2";
+            this.btnReserveF2.Size = new System.Drawing.Size(140, 35);
+            this.btnReserveF2.TabIndex = 9;
+            this.btnReserveF2.Text = "Reserve";
+            this.btnReserveF2.UseVisualStyleBackColor = false;
+            this.btnReserveF2.Click += new System.EventHandler(this.btnReserveF2_Click);
             // 
             // pnlroomC1
             // 
@@ -653,53 +653,53 @@
             this.btnReserveC2.UseVisualStyleBackColor = false;
             this.btnReserveC2.Click += new System.EventHandler(this.btnReserveC2_Click);
             // 
-            // pnlroomF1
+            // pnlroomS1
             // 
-            this.pnlroomF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomF1.BackgroundImage")));
-            this.pnlroomF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlroomF1.Controls.Add(this.btnReserveF1);
-            this.pnlroomF1.Location = new System.Drawing.Point(34, 110);
-            this.pnlroomF1.Name = "pnlroomF1";
-            this.pnlroomF1.Size = new System.Drawing.Size(863, 200);
-            this.pnlroomF1.TabIndex = 11;
+            this.pnlroomS1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomS1.BackgroundImage")));
+            this.pnlroomS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlroomS1.Controls.Add(this.btnReserveS1);
+            this.pnlroomS1.Location = new System.Drawing.Point(34, 111);
+            this.pnlroomS1.Name = "pnlroomS1";
+            this.pnlroomS1.Size = new System.Drawing.Size(863, 200);
+            this.pnlroomS1.TabIndex = 0;
             // 
-            // btnReserveF1
+            // btnReserveS1
             // 
-            this.btnReserveF1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.btnReserveF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserveF1.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReserveF1.ForeColor = System.Drawing.Color.White;
-            this.btnReserveF1.Location = new System.Drawing.Point(675, 110);
-            this.btnReserveF1.Name = "btnReserveF1";
-            this.btnReserveF1.Size = new System.Drawing.Size(140, 35);
-            this.btnReserveF1.TabIndex = 9;
-            this.btnReserveF1.Text = "Reserve";
-            this.btnReserveF1.UseVisualStyleBackColor = false;
-            this.btnReserveF1.Click += new System.EventHandler(this.btnReserveF1_Click);
+            this.btnReserveS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnReserveS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReserveS1.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReserveS1.ForeColor = System.Drawing.Color.White;
+            this.btnReserveS1.Location = new System.Drawing.Point(675, 110);
+            this.btnReserveS1.Name = "btnReserveS1";
+            this.btnReserveS1.Size = new System.Drawing.Size(140, 35);
+            this.btnReserveS1.TabIndex = 9;
+            this.btnReserveS1.Text = "Reserve";
+            this.btnReserveS1.UseVisualStyleBackColor = false;
+            this.btnReserveS1.Click += new System.EventHandler(this.btnReserveS1_Click);
             // 
-            // pnlroomF2
+            // pnlroomS2
             // 
-            this.pnlroomF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomF2.BackgroundImage")));
-            this.pnlroomF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlroomF2.Controls.Add(this.btnReserveF2);
-            this.pnlroomF2.Location = new System.Drawing.Point(34, 347);
-            this.pnlroomF2.Name = "pnlroomF2";
-            this.pnlroomF2.Size = new System.Drawing.Size(863, 200);
-            this.pnlroomF2.TabIndex = 12;
+            this.pnlroomS2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlroomS2.BackgroundImage")));
+            this.pnlroomS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlroomS2.Controls.Add(this.btnReserveS2);
+            this.pnlroomS2.Location = new System.Drawing.Point(34, 347);
+            this.pnlroomS2.Name = "pnlroomS2";
+            this.pnlroomS2.Size = new System.Drawing.Size(863, 200);
+            this.pnlroomS2.TabIndex = 1;
             // 
-            // btnReserveF2
+            // btnReserveS2
             // 
-            this.btnReserveF2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.btnReserveF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserveF2.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReserveF2.ForeColor = System.Drawing.Color.White;
-            this.btnReserveF2.Location = new System.Drawing.Point(675, 110);
-            this.btnReserveF2.Name = "btnReserveF2";
-            this.btnReserveF2.Size = new System.Drawing.Size(140, 35);
-            this.btnReserveF2.TabIndex = 9;
-            this.btnReserveF2.Text = "Reserve";
-            this.btnReserveF2.UseVisualStyleBackColor = false;
-            this.btnReserveF2.Click += new System.EventHandler(this.btnReserveF2_Click);
+            this.btnReserveS2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
+            this.btnReserveS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReserveS2.Font = new System.Drawing.Font("Cabin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReserveS2.ForeColor = System.Drawing.Color.White;
+            this.btnReserveS2.Location = new System.Drawing.Point(675, 109);
+            this.btnReserveS2.Name = "btnReserveS2";
+            this.btnReserveS2.Size = new System.Drawing.Size(140, 35);
+            this.btnReserveS2.TabIndex = 10;
+            this.btnReserveS2.Text = "Reserve";
+            this.btnReserveS2.UseVisualStyleBackColor = false;
+            this.btnReserveS2.Click += new System.EventHandler(this.btnReserveS2_Click);
             // 
             // formHome
             // 
@@ -730,12 +730,12 @@
             this.pnlContact.PerformLayout();
             this.pnlWeb.ResumeLayout(false);
             this.pnlBook.ResumeLayout(false);
-            this.pnlroomS1.ResumeLayout(false);
-            this.pnlroomS2.ResumeLayout(false);
-            this.pnlroomC1.ResumeLayout(false);
-            this.pnlroomC2.ResumeLayout(false);
             this.pnlroomF1.ResumeLayout(false);
             this.pnlroomF2.ResumeLayout(false);
+            this.pnlroomC1.ResumeLayout(false);
+            this.pnlroomC2.ResumeLayout(false);
+            this.pnlroomS1.ResumeLayout(false);
+            this.pnlroomS2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

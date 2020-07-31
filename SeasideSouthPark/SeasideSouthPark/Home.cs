@@ -231,16 +231,29 @@ namespace SeasideSouthPark
                 {
                     try
                     {
+                        int roomid = slctRoomType.SelectedIndex;
+                        
                         SqlConnection con = new SqlConnection(Global.ConnectionString);
-                        string qry = "Select RoomID from tblRoom Where Checkin=null and Checkout=null and RoomType='" + slctRoomType.SelectedText + "'";
+                        string qry = "Select * from tblRoom where RoomType='"+roomid+"' and Customer IS NULL";
                         SqlDataAdapter sda = new SqlDataAdapter(qry, con);
-                        hidePanels();
-                        pnlBook.Visible = true;
+                        DataTable dtbl = new DataTable();
+                        sda.Fill(dtbl);
+
+                        if (!(dtbl.Rows.Count == 0))
+                        {
+                            hidePanels();
+                            pnlBook.Visible = true;
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("There are no available rooms");
+                        }
                     }
 
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("There are no available rooms");
+                        MessageBox.Show("Error generated: "+ex);
                     }
 
                     finally

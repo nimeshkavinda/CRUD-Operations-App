@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace SeasideSouthPark
 {
@@ -16,6 +17,7 @@ namespace SeasideSouthPark
         string uName;
         string chkindate;
         string chkoutdate;
+        string path;
 
         public void hidePanels()
         {
@@ -29,6 +31,7 @@ namespace SeasideSouthPark
             InitializeComponent();
             lblUser.Text = username;
             uName = username;
+
             dtChkIn.Value = DateTime.Today;
             dtChkOut.Value = DateTime.Today;
             dtChkIn.MinDate = DateTime.Today;
@@ -36,6 +39,9 @@ namespace SeasideSouthPark
             chkindate = dtChkIn.Value.ToString("yyyy/MM/dd");
             chkoutdate = dtChkIn.Value.ToString("yyyy/MM/dd");
 
+            Encap ec = new Encap();
+            ec.setPath(uName);
+            path = ec.getPath();
         }
 
         private void formHome_Load(object sender, EventArgs e)
@@ -202,10 +208,13 @@ namespace SeasideSouthPark
             this.Hide();
         }
 
+        string chkin;
+        string chkout;
+
         private void btnFindRoom_Click(object sender, EventArgs e)
         {
-            string chkin = dtChkIn.Value.ToString("yyyy/MM/dd");
-            string chkout = dtChkOut.Value.ToString("yyyy/MM/dd");
+            chkin = dtChkIn.Value.ToString("yyyy/MM/dd");
+            chkout = dtChkOut.Value.ToString("yyyy/MM/dd");
 
             if (chkin == chkindate || chkout == chkoutdate)
             {
@@ -223,10 +232,8 @@ namespace SeasideSouthPark
                     try
                     {
                         SqlConnection con = new SqlConnection(Global.ConnectionString);
-                        string qry = "Select RoomID from tblRoom Where Checkin='" + null + "' and Checkout='" + null + "' and RoomType='" + slctRoomType.SelectedText + "'";
+                        string qry = "Select RoomID from tblRoom Where Checkin=null and Checkout=null and RoomType='" + slctRoomType.SelectedText + "'";
                         SqlDataAdapter sda = new SqlDataAdapter(qry, con);
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
                         hidePanels();
                         pnlBook.Visible = true;
                     }
@@ -244,6 +251,345 @@ namespace SeasideSouthPark
                     }
 
                 }
+            }
+        }
+
+        private void pnlBook_Paint(object sender, PaintEventArgs e)
+        {
+            if (slctRoomType.SelectedIndex == 0)
+            {
+                pnlroomS1.Visible = true;
+                pnlroomS2.Visible = true;
+                pnlroomC1.Visible = false;
+                pnlroomC2.Visible = false;
+                pnlroomF1.Visible = false;
+                pnlroomF2.Visible = false;
+            }
+
+            if (slctRoomType.SelectedIndex == 1)
+            {
+                pnlroomS1.Visible = false;
+                pnlroomS2.Visible = false;
+                pnlroomC1.Visible = true;
+                pnlroomC2.Visible = true;
+                pnlroomF1.Visible = false;
+                pnlroomF2.Visible = false;
+            }
+
+            if (slctRoomType.SelectedIndex == 2)
+            {
+                pnlroomS1.Visible = false;
+                pnlroomS2.Visible = false;
+                pnlroomC1.Visible = false;
+                pnlroomC2.Visible = false;
+                pnlroomF1.Visible = true;
+                pnlroomF2.Visible = true;
+            }
+        }
+
+        private void btnReserveS1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 1";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 1");
+                        sw.WriteLine("Room Type: Solo");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " +uName+ " already exists in the local drive");
+                }   
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
+            }
+        }
+
+        private void btnReserveS2_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 2";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 2");
+                        sw.WriteLine("Room Type: Solo");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " + uName + " already exists in the local drive");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
+            }
+        }
+
+        private void btnReserveC1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 3";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 3");
+                        sw.WriteLine("Room Type: Couple");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " + uName + " already exists in the local drive");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
+            }
+        }
+
+        private void btnReserveC2_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 4";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 4");
+                        sw.WriteLine("Room Type: Couple");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " + uName + " already exists in the local drive");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
+            }
+        }
+
+        private void btnReserveF1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 5";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 5");
+                        sw.WriteLine("Room Type: Family");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " + uName + " already exists in the local drive");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
+            }
+        }
+
+        private void btnReserveF2_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Global.ConnectionString);
+            string qry = "Update tblRoom Set CheckIn='" + chkin + "', CheckOut='" + chkout + "', Customer='" + uName + "' Where RoomID = 6";
+            SqlCommand cmd = new SqlCommand(qry, con);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Room has been reserved for " + uName + "\nCheck-In " + chkin + " Check-Out " + chkout + "");
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine("==============Seaside South Park=============");
+                        sw.WriteLine("===========Room Reservation Ticket===========");
+                        sw.WriteLine("");
+                        sw.WriteLine("Customer Account: " + uName);
+                        sw.WriteLine("Room Number: 6");
+                        sw.WriteLine("Room Type: Family");
+                        sw.WriteLine("Check-In " + chkin);
+                        sw.WriteLine("Check-Out: " + chkout);
+                        sw.WriteLine("");
+                        sw.WriteLine("==========Thank you for choosing us==========");
+                        sw.WriteLine("=======We hope you enjoy your vacation=======");
+                    }
+
+                    MessageBox.Show("Please find the ticket in the local drive");
+                }
+
+                else
+                {
+                    MessageBox.Show("Ticket won't be printed.\nA ticket for " + uName + " already exists in the local drive");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't reserve the room, Error Generated: " + ex);
+            }
+
+            finally
+            {
+                hidePanels();
+                pnlWelcome.Visible = true;
             }
         }
     }

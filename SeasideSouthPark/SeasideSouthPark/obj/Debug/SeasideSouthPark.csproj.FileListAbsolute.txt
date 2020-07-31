@@ -60,3 +60,4 @@ D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\De
 D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\Newtonsoft.Json.xml
 D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.xml
 D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\bin\Debug\System.Data.SQLite.dll.config
+D:\Documents\GitHub\CRUD-Operations-App\SeasideSouthPark\SeasideSouthPark\obj\Debug\SeasideSouthPark.csproj.CoreCompileInputs.cache

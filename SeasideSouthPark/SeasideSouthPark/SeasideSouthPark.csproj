@@ -98,6 +98,7 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Encap.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>

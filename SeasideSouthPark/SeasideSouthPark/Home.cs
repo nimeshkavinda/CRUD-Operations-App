@@ -330,7 +330,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else
@@ -381,7 +381,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else
@@ -432,7 +432,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else
@@ -483,7 +483,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else
@@ -534,7 +534,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else
@@ -585,7 +585,7 @@ namespace SeasideSouthPark
                         sw.WriteLine("=======We hope you enjoy your vacation=======");
                     }
 
-                    MessageBox.Show("Please find the ticket in the local drive");
+                    MessageBox.Show("Please find the ticket in your documents");
                 }
 
                 else

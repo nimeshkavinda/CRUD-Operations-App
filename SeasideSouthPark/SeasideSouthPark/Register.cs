@@ -239,7 +239,7 @@ namespace SeasideSouthPark
                 string password = txtPassword.Text;
 
                 SqlConnection con = new SqlConnection(Global.ConnectionString);
-                string qry = "Insert into tblUser Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "','" + null +"','" + null + "','" + null + "')";
+                string qry = "Insert into tblUser Values ('" + username + "','" + fname + "','" + lname + "','" + email + "','" + phone + "','" + password + "','" + null +"','" + null + "')";
                 SqlCommand cmd = new SqlCommand(qry, con);
 
                 try

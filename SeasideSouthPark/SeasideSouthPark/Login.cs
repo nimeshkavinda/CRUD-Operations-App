@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace SeasideSouthPark
 {
@@ -16,6 +17,17 @@ namespace SeasideSouthPark
         public formLogin()
         {
             InitializeComponent();
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            String path = Path.Combine(documents, "SeasideSouthPark\\Image");
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

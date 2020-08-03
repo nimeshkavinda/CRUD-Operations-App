@@ -35,7 +35,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.dragCtrlBar = new JDragControl.JDragControl(this.components);
             this.pnlAccBg = new System.Windows.Forms.Panel();
-            this.linkSaveImg = new System.Windows.Forms.LinkLabel();
             this.linkDelAcc = new System.Windows.Forms.LinkLabel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -136,7 +135,6 @@
             // 
             this.pnlAccBg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlAccBg.BackgroundImage")));
             this.pnlAccBg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlAccBg.Controls.Add(this.linkSaveImg);
             this.pnlAccBg.Controls.Add(this.linkDelAcc);
             this.pnlAccBg.Controls.Add(this.btnUpdate);
             this.pnlAccBg.Controls.Add(this.panel7);
@@ -160,21 +158,6 @@
             this.pnlAccBg.Name = "pnlAccBg";
             this.pnlAccBg.Size = new System.Drawing.Size(800, 565);
             this.pnlAccBg.TabIndex = 6;
-            // 
-            // linkSaveImg
-            // 
-            this.linkSaveImg.ActiveLinkColor = System.Drawing.SystemColors.ControlDark;
-            this.linkSaveImg.AutoSize = true;
-            this.linkSaveImg.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkSaveImg.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkSaveImg.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkSaveImg.Location = new System.Drawing.Point(150, 108);
-            this.linkSaveImg.Name = "linkSaveImg";
-            this.linkSaveImg.Size = new System.Drawing.Size(82, 16);
-            this.linkSaveImg.TabIndex = 31;
-            this.linkSaveImg.TabStop = true;
-            this.linkSaveImg.Text = "Save changes";
-            this.linkSaveImg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaveImg_LinkClicked);
             // 
             // linkDelAcc
             // 
@@ -416,7 +399,7 @@
             this.linkImgUpload.Font = new System.Drawing.Font("Cabin", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkImgUpload.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkImgUpload.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.linkImgUpload.Location = new System.Drawing.Point(150, 72);
+            this.linkImgUpload.Location = new System.Drawing.Point(150, 108);
             this.linkImgUpload.Name = "linkImgUpload";
             this.linkImgUpload.Size = new System.Drawing.Size(85, 16);
             this.linkImgUpload.TabIndex = 19;
@@ -480,7 +463,6 @@
             // 
             // picboxUser
             // 
-            this.picboxUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxUser.BackgroundImage")));
             this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picboxUser.Location = new System.Drawing.Point(41, 50);
             this.picboxUser.Name = "picboxUser";
@@ -507,6 +489,7 @@
             this.Name = "formAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Account";
+            this.Load += new System.EventHandler(this.formAccount_Load);
             this.ctrlBar.ResumeLayout(false);
             this.pnlAccBg.ResumeLayout(false);
             this.pnlAccBg.PerformLayout();
@@ -566,6 +549,5 @@
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.LinkLabel linkDelAcc;
-        private System.Windows.Forms.LinkLabel linkSaveImg;
     }
 }

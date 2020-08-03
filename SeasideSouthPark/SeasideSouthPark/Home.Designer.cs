@@ -57,7 +57,6 @@
             this.dtChkIn = new System.Windows.Forms.DateTimePicker();
             this.pnlContact = new System.Windows.Forms.Panel();
             this.pnlWeb = new System.Windows.Forms.Panel();
-            this.webMap = new System.Windows.Forms.WebBrowser();
             this.linkAnu = new System.Windows.Forms.LinkLabel();
             this.linkSahan = new System.Windows.Forms.LinkLabel();
             this.linkNimesh = new System.Windows.Forms.LinkLabel();
@@ -75,6 +74,7 @@
             this.btnReserveS1 = new System.Windows.Forms.Button();
             this.pnlroomS2 = new System.Windows.Forms.Panel();
             this.btnReserveS2 = new System.Windows.Forms.Button();
+            this.webMap = new System.Windows.Forms.WebBrowser();
             this.ctrlBar.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -330,11 +330,11 @@
             // 
             // picboxUser
             // 
-            this.picboxUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picboxUser.BackgroundImage")));
             this.picboxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picboxUser.Location = new System.Drawing.Point(25, 25);
             this.picboxUser.Name = "picboxUser";
             this.picboxUser.Size = new System.Drawing.Size(65, 65);
+            this.picboxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxUser.TabIndex = 8;
             this.picboxUser.TabStop = false;
             // 
@@ -461,20 +461,10 @@
             // pnlWeb
             // 
             this.pnlWeb.Controls.Add(this.webMap);
-            this.pnlWeb.Location = new System.Drawing.Point(34, 330);
+            this.pnlWeb.Location = new System.Drawing.Point(34, 320);
             this.pnlWeb.Name = "pnlWeb";
-            this.pnlWeb.Size = new System.Drawing.Size(445, 230);
+            this.pnlWeb.Size = new System.Drawing.Size(445, 250);
             this.pnlWeb.TabIndex = 25;
-            // 
-            // webMap
-            // 
-            this.webMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webMap.Location = new System.Drawing.Point(0, 0);
-            this.webMap.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webMap.Name = "webMap";
-            this.webMap.ScrollBarsEnabled = false;
-            this.webMap.Size = new System.Drawing.Size(445, 230);
-            this.webMap.TabIndex = 0;
             // 
             // linkAnu
             // 
@@ -701,15 +691,26 @@
             this.btnReserveS2.UseVisualStyleBackColor = false;
             this.btnReserveS2.Click += new System.EventHandler(this.btnReserveS2_Click);
             // 
+            // webMap
+            // 
+            this.webMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webMap.Location = new System.Drawing.Point(0, 0);
+            this.webMap.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webMap.Name = "webMap";
+            this.webMap.ScrollBarsEnabled = false;
+            this.webMap.Size = new System.Drawing.Size(445, 250);
+            this.webMap.TabIndex = 0;
+            this.webMap.Url = new System.Uri("", System.UriKind.Relative);
+            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 660);
+            this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.pnlBook);
             this.Controls.Add(this.pnlWelcome);
-            this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.ctrlBar);
             this.Font = new System.Drawing.Font("Cabin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -756,7 +757,6 @@
         private System.Windows.Forms.LinkLabel linkAnu;
         private System.Windows.Forms.LinkLabel linkSahan;
         private System.Windows.Forms.Panel pnlWeb;
-        private System.Windows.Forms.WebBrowser webMap;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnSignOut;
@@ -787,5 +787,6 @@
         private System.Windows.Forms.Button btnReserveF2;
         private System.Windows.Forms.Panel pnlroomF1;
         private System.Windows.Forms.Button btnReserveF1;
+        private System.Windows.Forms.WebBrowser webMap;
     }
 }

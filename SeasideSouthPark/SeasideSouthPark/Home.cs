@@ -48,6 +48,21 @@ namespace SeasideSouthPark
         {
             hidePanels();
             pnlWelcome.Visible = true;
+
+            webMap.ScriptErrorsSuppressed = true;
+            this.webMap.Navigate("https://www.bing.com/maps/embed?h=250&w=445&cp=6.8239351463567886~80.04167879267385&lvl=14&typ=d&sty=r&src=SHELL&FORM=MBEDV8");
+
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string path = Path.Combine(documents, "SeasideSouthPark\\Image\\" + uName + ".jpg");
+
+            if (File.Exists(path))
+            {
+                picboxUser.Image = Image.FromFile(path);
+            }
+            else
+            {
+                picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

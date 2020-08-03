@@ -42,6 +42,21 @@ namespace SeasideSouthPark
             lblCountry.Text = country.Trim();
         }
 
+        private void formAccount_Load(object sender, EventArgs e)
+        {
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string path = Path.Combine(documents, "SeasideSouthPark\\Image\\" + uName + ".jpg");
+
+            if (File.Exists(path))
+            {
+                picboxUser.Image = Image.FromFile(path);
+            }
+            else
+            {
+                picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -75,108 +90,46 @@ namespace SeasideSouthPark
         }
 
         string imgLoc = "";
-        SqlConnection connection = new SqlConnection(Global.ConnectionString);
-        SqlCommand command;
 
         private void linkImgUpload_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Image files | *.jpg";
+                ofd.Filter = "JPG files | *.jpg";
                 ofd.Title = "Choose image";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     imgLoc = ofd.FileName.ToString();
                     picboxUser.ImageLocation = imgLoc;
+
+                    string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    String path = Path.Combine(documents, "SeasideSouthPark\\Image\\" + uName + Path.GetExtension(ofd.FileName.ToString()));
+                    File.Copy(ofd.FileName.ToString(), path);
+                    MessageBox.Show("Profile image has been updated");
                 }
 
+
+                /*string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                String path = Path.Combine(documents, "Seaside South Park\\Image\\" + uName + ".jpg");
+
+                if (File.Exists(path))
+                {
+                    picboxUser.Image = Image.FromFile(path);
+                }
+                else
+                {
+                    picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
+                }
+                */
+
+
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-            finally
-            {
-                byte[] img = null;
-                FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-
-                img = br.ReadBytes((int)fs.Length);
-
-                string query = "Update tblUser Set ProImg='" + @img + "' Where Username ='" + uName + "'";
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
-                command = new SqlCommand(query, connection);
-                command.Parameters.Add(new SqlParameter("@img", img));
-                command.ExecuteNonQuery();
-                connection.Close();
-                MessageBox.Show("Profile image has been updated, Please save changes");
-            }
-        }
-
-        private void linkSaveImg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                string query = "Select ProImg from tblUser Where Username ='" + uName + "'";
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
-                command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                reader.Read();
-
-                if (reader.HasRows)
-                {
-                    byte[] img = (byte[])(reader[0]);
-                    if (img == null)
-                    {
-                        picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
-                        MessageBox.Show("Image can not be found");
-                    }
-
-                    else
-                    {
-                        connection.Close();
-                        MemoryStream ms = new MemoryStream(img);
-                       // picboxUser.Image = Image.FromStream(ms);
-
-
-                        byte[] getImg = new byte[0];
-                        SqlCommand cmd = new SqlCommand("Select ProImg from tblUser Where Username = '" + uName + "'", connection);
-                        cmd.CommandType = CommandType.Text;
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            getImg = (byte[])dr["ProImg"];
-                        }
-
-                        byte[] imgData = getImg;
-                        MemoryStream stream = new MemoryStream(imgData);
-                        var newImage = System.Drawing.Image.FromStream(stream);
-                        stream.Dispose();
-                        picboxUser.Image = newImage;
-
-
-
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("Image has not been saved properly");
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                connection.Close();
-                MessageBox.Show("Error generated: "+ex);
             }
         }
 

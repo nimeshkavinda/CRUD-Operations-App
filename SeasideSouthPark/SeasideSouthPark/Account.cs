@@ -109,22 +109,6 @@ namespace SeasideSouthPark
                     File.Copy(ofd.FileName.ToString(), path);
                     MessageBox.Show("Profile image has been updated");
                 }
-
-
-                /*string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                String path = Path.Combine(documents, "Seaside South Park\\Image\\" + uName + ".jpg");
-
-                if (File.Exists(path))
-                {
-                    picboxUser.Image = Image.FromFile(path);
-                }
-                else
-                {
-                    picboxUser.Image = SeasideSouthPark.Properties.Resources.defaultUser;
-                }
-                */
-
-
             }
 
             catch (Exception ex)
